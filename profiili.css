@@ -1,0 +1,121 @@
+body {
+    background-color: #F0E9E9;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    background-size: cover; /* Adjust the size of the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+    background-image: url(white-background.jpg);
+    border-radius: 1rem;
+    margin: 0.5rem;
+    height: auto;
+    width: auto;
+}
+
+#profile-name {
+    display: flex;
+    justify-content: center;
+    height: 25vh;
+    width: auto;
+}
+
+section h1 {
+    font-style: italic;
+    font-size: 3rem;
+    margin: 0rem;
+    margin-top: 5rem;
+    padding: 0.2rem;
+}
+
+.list {
+    background-color: whitesmoke;
+    font-style: italic;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    border-style: double ;
+    border-color: rgb(217, 222, 225);
+}
+
+.list ul {
+    list-style: none;
+}
+
+.list li {
+    margin: 1rem;
+    background-color: #F0E9E9;
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    border-bottom-style: double ;
+    border-bottom-color: rgb(217, 222, 225);
+    border-right-style: double ;
+    border-right-color: rgb(217, 222, 225);
+}
+
+#settings-button {
+    background: none; /* Removes default button background */
+    border: none;     /* Removes default button border */
+    cursor: pointer;  /* Makes it look clickable */
+    padding: 0;       /* Removes extra padding */
+}
+
+#settings {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 10rem;
+    margin-top: 1rem;
+}
+
+#settings:hover {
+    background-color: #F0E9E9;
+    border-radius: 0.8rem;
+}
+
+.profile-bottom {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#vip-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+    border-style: double ;
+    border-color: rgb(217, 222, 225);
+    margin-left: 4rem;
+
+}
+
+#adim-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+    border-style: double ;
+    border-color: rgb(217, 222, 225);
+    margin-left: 5rem;
+
+}
