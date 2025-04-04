@@ -14,7 +14,7 @@ main {
     background-size: cover; /* Adjust the size of the background image */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center; /* Center the background image */
-    background-image: url(white-background.jpg);
+    background-image: url(pictures/white-background.jpg);
     border-radius: 1rem;
     margin: 0.5rem;
     height: auto;
