@@ -50,6 +50,27 @@
     font-size: 12px;
 }
 
+.menu-container {
+    display: flex;
+    flex-direction: row;
+    /* Kuvien ja tekstien rinnakkain */
+    justify-content: flex-start;
+    /* Tasaa vasemmalle */
+    align-items: center;
+    /* Keskittää pystysuunnassa */
+    gap: 2rem;
+    /* Väli kuvien ja tekstien välillä */
+}
+
+.menu-images {
+    display: flex;
+    flex-direction: column;
+    /* Kuvat pinoutuvat pystysuoraan */
+    margin-right: 2rem;
+    /* Väli tekstien kanssa */
+    order: 1;
+}
+
 .menu-images img {
     border-radius: 50%;
     width: 10rem;
@@ -63,4 +84,13 @@
 .image-link:hover {
     transform: scale(1.05);
     /* adds zoom effect when hoverin above img */
+}
+
+.menu-text {
+    display: flex;
+    flex-direction: column;
+    /* Tekstit päällekkäin */
+    justify-content: center;
+    /* Keskittää tekstit pystysuunnassa */
+    order: 2;
 }
