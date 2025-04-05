@@ -54,4 +54,13 @@
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
+    cursor: pointer;
+    /* shows user that photo can be clicked*/
+    margin: 1rem;
+
+}
+
+.image-link:hover {
+    transform: scale(1.05);
+    /* adds zoom effect when hoverin above img */
 }
