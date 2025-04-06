@@ -18,22 +18,49 @@
                 <div class="navigation">
                     <a href="frontpage.html" class="nav-button">Etusivu</a>
                     <a href="menu.html" class="nav-button">Ruokalista</a>
-                    <a href="frontpage.html" class="nav-button">Rekisteröidy</a>
-                    <a href="#" id="open-modal" class="nav-button">Kirjaudu Sisään</a>
+                    <a href="#" id="open-register-modal" class="nav-button">Rekisteröidy</a>
+                    <a href="#" id="open-login-modal" class="nav-button">Kirjaudu Sisään</a>
                 </div>
         </header>
 
         <dialog id="login-modal">
-            <form method="dialog">
+            <form method="dialog" id="login-form">
               <h2>Kirjaudu Sisään</h2>
               <div id="login-input">
-                  <input type="text" id="username" name="username" placeholder="Username" required />
-                  <input type="password" id="password" name="password" placeholder="Password" required />
+                  <input type="text" id="username" name="username" placeholder="Käyttäjä" required />
+                  <input type="password" id="password" name="password" placeholder="Salasana" required />
               </div>
               <div id="login-buttons">
-                <button type="submit">Login</button>
-                <button type="button" id="close-modal">Close</button>
+                <button type="submit">Kirjaudu</button>
+                <button type="button" id="close-login">Sulje</button>
               </div>
+            </form>
+        </dialog>
+        <dialog id="register-modal">
+            <form method="dialog" id="register-form">
+                <h2>Rekisteröidy</h2>
+            <div class="register-input">
+                <div id="register-input-left">
+                    <label><strong>Koko nimi</strong></label>
+                    <input type="text" id="name" name="name" placeholder="Syötä koko nimi" required />
+                    <label><strong>Sähköpostioisoite</strong></label>
+                    <input type="text" id="eamil" name="email" placeholder="Syötä sähköpostiosoite" required />
+                    <label><strong>Salasana</strong></label>
+                    <input type="password" id="password" placeholder="Syötä salasana" required />
+                </div>
+                <div id="register-input-right">
+                    <label><strong>Käyttäjä nimi</strong></label>
+                    <input type="text" id="username" name="username" placeholder="Syötä käyttäjä nimi" required />
+                    <label><strong>Puhelinnumero</strong></label>
+                    <input type="text" id="phonenumber" name="phonenumber" placeholder="Syötä puhelinnumero" required />
+                    <label><strong>Varmista salasana</strong></label>
+                    <input type="password" id="password-confirmation" placeholder="Syötä salasana uudelleen" required />
+                </div>
+            </div>
+            <div id="register-buttons">
+                <button type="submit">Rekisteröidy</button>
+                <button type="button" id="close-register">Sulje</button>
+            </div>
             </form>
         </dialog>
 
