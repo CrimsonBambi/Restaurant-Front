@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html> <!-- Myöhemmin lisättävä lang -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Gerli Hirv" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Oma profiili</title>
+        <link rel="stylesheet" href="profiili.css">
+        <script src="profiili.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="page-header">
+                <div class="logo">
+                    <div id="logo-image"></div>
+                    <p>Restaurant name</p>
+                </div>
+                <div class="navigation">
+                    <a href="../frontpage/frontpage.html" class="nav-button">Etusivu</a>
+                    <a href="../menu/menu.html" class="nav-button">Ruokalista</a>
+                    <a href="#" id="open-register-modal" class="nav-button">Rekisteröidy</a>
+                    <a href="#" id="open-login-modal" class="nav-button">Kirjaudu Sisään</a>
+                </div>
+        </header>
+
+        <dialog id="login-modal">
+            <form method="dialog" id="login-form">
+              <h2>Kirjaudu Sisään</h2>
+              <div id="login-input">
+                  <input type="text" id="username" name="username" placeholder="Käyttäjä" required />
+                  <input type="password" id="password" name="password" placeholder="Salasana" required />
+              </div>
+              <div id="login-buttons">
+                <button type="submit">Kirjaudu</button>
+                <button type="button" id="close-login">Sulje</button>
+              </div>
+            </form>
+        </dialog>
+        <dialog id="register-modal">
+            <form method="dialog" id="register-form">
+                <h2>Rekisteröidy</h2>
+            <div class="register-input">
+                <div id="register-input-left">
+                    <label><strong>Koko nimi</strong></label>
+                    <input type="text" id="name" name="name" placeholder="Syötä koko nimi" required />
+                    <label><strong>Sähköpostioisoite</strong></label>
+                    <input type="text" id="eamil" name="email" placeholder="Syötä sähköpostiosoite" required />
+                    <label><strong>Salasana</strong></label>
+                    <input type="password" id="password" placeholder="Syötä salasana" required />
+                </div>
+                <div id="register-input-right">
+                    <label><strong>Käyttäjä nimi</strong></label>
+                    <input type="text" id="username" name="username" placeholder="Syötä käyttäjä nimi" required />
+                    <label><strong>Puhelinnumero</strong></label>
+                    <input type="text" id="phonenumber" name="phonenumber" placeholder="Syötä puhelinnumero" required />
+                    <label><strong>Varmista salasana</strong></label>
+                    <input type="password" id="password-confirmation" placeholder="Syötä salasana uudelleen" required />
+                </div>
+            </div>
+            <div id="register-buttons">
+                <button type="submit">Rekisteröidy</button>
+                <button type="button" id="close-register">Sulje</button>
+            </div>
+            </form>
+        </dialog>
+
+        <main>
+            <div class="main-container">
+                <section id="profile-name">
+                    <H1> Hello name!</H1>
+                </section>
+                <div class="list">
+                    <ul>
+                       <li><strong>Name:</strong> Jhon Doe</li>
+                       <li><strong>Username:</strong> johnny123</li>
+                       <li><strong>Password:</strong> •••••••</li>
+                    </ul>
+                    <ul>
+                        <li><strong>Email:</strong> jhon@example.com</li>
+                        <li><strong>Phone Number:</strong> +358...</li>
+                        <button id="settings-button">
+                            <img id="settings" src="pictures/settings.png" alt="Settings">
+                        </button>
+                    </ul>
+                </div>
+                <div class="profile-bottom">
+                    <section id="vip-status">
+                        <label id="vip">VIP-Status</label>
+                        <p>Since 1.3.2025</p>
+                    </section>
+                    <section id="adim-status">
+                        <label id="admin">Admin Status</label>
+                        <p>No Rights</p>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="page-footer">
+                <div class="contact-info">
+                    <p>Ravintolan Nimi</p>
+                    <p>Osoite</p>
+                    <p>Puhelin numero</p>
+                    <p>email@email.com</p>
+                    <button id="feedback">Jätä Palautetta!</button>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
