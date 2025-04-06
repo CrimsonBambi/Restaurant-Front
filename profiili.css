@@ -119,3 +119,44 @@ section h1 {
     margin-left: 5rem;
 
 }
+
+/*etusivu css*/
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.logo {
+    display: flex;
+}
+
+#logo-image {
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    margin-right: 10px;
+}
+
+.nav-button {
+    font-size: 30px;
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    font-size: 12px;
+}
