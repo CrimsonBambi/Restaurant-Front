@@ -19,9 +19,24 @@
                     <a href="frontpage.html" class="nav-button">Etusivu</a>
                     <a href="menu.html" class="nav-button">Ruokalista</a>
                     <a href="frontpage.html" class="nav-button">Rekisteröidy</a>
-                    <a href="frontpage.html" class="nav-button">Kirjaudu Sisään</a>
+                    <a href="#" id="open-modal" class="nav-button">Kirjaudu Sisään</a>
                 </div>
         </header>
+
+        <dialog id="login-modal">
+            <form method="dialog">
+              <h2>Kirjaudu Sisään</h2>
+              <div id="login-input">
+                  <input type="text" id="username" name="username" placeholder="Username" required />
+                  <input type="password" id="password" name="password" placeholder="Password" required />
+              </div>
+              <div id="login-buttons">
+                <button type="submit">Login</button>
+                <button type="button" id="close-modal">Close</button>
+              </div>
+            </form>
+        </dialog>
+
         <main>
             <div class="main-container">
                 <section id="profile-name">
