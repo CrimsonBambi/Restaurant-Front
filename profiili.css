@@ -15,8 +15,6 @@ main {
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center; /* Center the background image */
     background-image: url(pictures/white-background.jpg);
-    border-radius: 1rem;
-    margin: 0.5rem;
     height: auto;
     width: auto;
 }
@@ -105,6 +103,10 @@ section h1 {
 
 }
 
+#vip {
+    font-weight: bold;
+}
+
 #adim-status {
     display: flex;
     flex-direction: column;
@@ -120,7 +122,11 @@ section h1 {
 
 }
 
-/*etusivu css*/
+#admin {
+    font-weight: bold;
+}
+
+/*Header + footer ↓↓*/
 
 .page-header {
     display: flex;
