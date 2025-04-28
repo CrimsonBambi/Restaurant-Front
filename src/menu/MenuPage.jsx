@@ -4,7 +4,7 @@ import MenuModal from "./MenuModal";
 import menu1 from "../assets/menu1.jpg";
 import menu2 from "../assets/menu2.jpg";
 import menu3 from "../assets/menu3.jpg";
-import "../menu/menu.css"; // Make sure this CSS is properly linked
+import "../menu/menu.css"; 
 
 function MenuPage() {
   const [openModal, setOpenModal] = useState(null);
@@ -18,7 +18,8 @@ function MenuPage() {
   // Function to handle opening the modal
   const handleModalOpen = (id) => {
     const item = menuItems.find((menu) => menu.id === id);
-    setOpenModal(item); // Set the full item object in the state
+    console.log("Opening modal for item:", item); // Debug-tulostus
+    setOpenModal(item);
   };
 
   // Function to close the modal
