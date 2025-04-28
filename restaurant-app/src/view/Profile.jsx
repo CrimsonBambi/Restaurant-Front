@@ -1,4 +1,4 @@
-import './profile.css';
+import '../css/profile.css';
 import logo from '../assets/settings.png';
 
 
