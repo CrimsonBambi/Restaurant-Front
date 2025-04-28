@@ -1,30 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MenuItem from "./MenuItem";
 import MenuModal from "./MenuModal";
+import "../menu/menu.css";
+
+// Tuodaan kuvat
 import menu1 from "../assets/menu1.jpg";
 import menu2 from "../assets/menu2.jpg";
 import menu3 from "../assets/menu3.jpg";
-import "../menu/menu.css"; 
 
 function MenuPage() {
   const [openModal, setOpenModal] = useState(null);
+  const [fetchedMenus, setFetchedMenus] = useState([]); // Huom! nyt taulukko, koska monta menu
 
-  const menuItems = [
-    { id: "menu1", name: "Menu1", description: "Menu description fetched from the database", image: menu1 },
-    { id: "menu2", name: "Menu2", description: "Menu description fetched from the database", image: menu2 },
-    { id: "menu3", name: "Menu3", description: "Menu description fetched from the database", image: menu3 },
-  ];
+  // Mapping menu ID -> kuva
+  const menuImages = {
+    1: menu1,
+    2: menu2,
+    3: menu3,
+  };
 
-  // Function to handle opening the modal
-  const handleModalOpen = (id) => {
-    const item = menuItems.find((menu) => menu.id === id);
-    console.log("Opening modal for item:", item); // Debug-tulostus
+  // Hakee kaikki menut
+  useEffect(() => {
+    const fetchMenus = async () => {
+      try {
+        const ids = [1, 2, 3];
+        const promises = ids.map(id =>
+          fetch(`http://10.120.32.81/restaurant/api/v1/menus/${id}`).then(res => res.json())
+        );
+        const results = await Promise.all(promises);
+
+        // Lisätään jokaiseen menuun kuva mukaan
+        const menusWithImages = results.map(menu => ({
+          ...menu,
+          image: menuImages[menu.id],
+        }));
+
+        setFetchedMenus(menusWithImages);
+      } catch (error) {
+        console.error("Error fetching the menus:", error);
+      }
+    };
+
+    fetchMenus();
+  }, []);
+
+  // Modal auki
+  const handleModalOpen = (item) => {
     setOpenModal(item);
   };
 
-  // Function to close the modal
+  // Modal kiinni
   const handleModalClose = () => {
-    setOpenModal(null); // Reset the state to close the modal
+    setOpenModal(null);
   };
 
   return (
@@ -47,19 +74,23 @@ function MenuPage() {
       <main>
         <div className="menu-container">
           <div className="menu-heading-container">
-            <h2 className="menu-heading">Click on the image to get more details about the menu items</h2>
+            <h2 className="menu-heading">Saat lisätietoja menun sisällöstä klikkaamalla kuvaa</h2>
           </div>
           <div className="menu-content">
             <div className="menu-images">
-              {menuItems.map((item) => (
-                <MenuItem key={item.id} item={item} onClick={() => handleModalOpen(item.id)} />
+              {fetchedMenus.map((menu) => (
+                <MenuItem
+                  key={menu.id}
+                  item={menu}
+                  onClick={() => handleModalOpen(menu)}
+                />
               ))}
             </div>
             <div className="menu-text-container">
-              {menuItems.map((item) => (
-                <div className="menu-item" key={item.id}>
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
+              {fetchedMenus.map((menu) => (
+                <div className="menu-item" key={menu.id}>
+                  <h3>{menu.name}</h3>
+                  <p>{menu.description}</p>
                 </div>
               ))}
             </div>
