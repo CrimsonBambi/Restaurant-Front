@@ -1,0 +1,37 @@
+As an admin I need a service the keep track of table reservations
+
+As an admin I need a service to view, add, delete and modify menu selections
+
+As an admin I need a service to collect and view customer feedback
+
+As an admin I need a service to keep track of registered users
+
+As a user I need service to reserve a table.
+
+As a user I need a service to view today's menu
+
+As a user I need servie to view and modify my account
+
+Create routes for the app pages and API endpoints
+
+Attach GET, POST, DELETE and PUT to the routes
+
+Create database and make all the connections between tables
+
+Create object representations of necessary elements from the database (model of MVC)
+
+Create a reservations system for tables, that prevents further reservations during a specified
+amount of time.
+
+Create a system that updates database on reserced tables
+
+Create system that updates menu page of the app based on information fetched from the database
+
+Implement user authentication
+
+Protect routes as per what is allowed within user roles
+
+
+
+
+
