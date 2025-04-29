@@ -1,14 +1,37 @@
-import { useState } from 'react'
-import MenuPage from './menu/MenuPage'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router';
+import Profile from './view/Profile';
+import Login from './view/Login';
+import Register from './view/Register';
+import MenuPage from './view/MenuPage';
+import "./css/header.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <MenuPage />
-    </>
-  )
+    <Router>
+      <header className="header">
+        <div className="restaurant-name">
+          <h1>Ravintolan nimi</h1>
+        </div>
+
+        <nav className="nav">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/menu" className="nav-link">Menu</Link>
+          <Link to="/login" className="nav-link">Login</Link>
+          <Link to="/profile" className="nav-link">Profile</Link>
+          <Link to="/register" className="nav-link">Register</Link>
+        </nav>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<h1>Home Page</h1>} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
