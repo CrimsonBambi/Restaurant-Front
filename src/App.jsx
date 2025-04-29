@@ -4,6 +4,7 @@ import Login from './view/Login';
 import Register from './view/Register';
 import MenuPage from './view/MenuPage';
 import "./css/header.css";
+import './App.css';
 
 function App() {
   return (
