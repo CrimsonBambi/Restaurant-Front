@@ -1,21 +1,21 @@
 
-
-#root {
-  padding: 0;
-}
-
 /*login modal*/
 #login-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
   border-radius: 1rem;
   border-style: double ;
   border-color: rgb(217, 222, 225);
-  background: url(../assets/white-background.jpg);
+  background-color: #F0E9E9;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   width: auto;
+  max-width: 50vh;
   height: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   font-style: italic;
 }
 
