@@ -1,15 +1,7 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-nav a {
-  padding: 1rem;
-  text-decoration: none;
-}
-
-nav a:hover {
-  font-weight: 500;
+body {
+  background-color: #F0E9E9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
