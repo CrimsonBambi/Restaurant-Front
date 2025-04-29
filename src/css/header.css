@@ -1,0 +1,29 @@
+.header {
+    background-color: #333;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ac5799;
+}
+
+.restaurant-name h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
