@@ -51,16 +51,16 @@ function MenuPage() {
   };
 
   return (
-    <div className="webpage">
+    <div id="menu-webpage">
       <main>
-        <div className="menu-container">
-          <div className="menu-heading-container">
-            <h2 className="menu-heading">
+        <div id="menu-container">
+          <div id="menu-heading-container">
+            <h2 id="menu-heading">
               Saat lisätietoja menun sisällöstä klikkaamalla kuvaa
             </h2>
           </div>
-          <div className="menu-content">
-            <div className="menu-images">
+          <div id="menu-content">
+            <div id="menu-images">
               {fetchedMenus.map((menu) => (
                 <MenuItem
                   key={menu.id}
@@ -69,9 +69,9 @@ function MenuPage() {
                 />
               ))}
             </div>
-            <div className="menu-text-container">
+            <div id="menu-text-container">
               {fetchedMenus.map((menu) => (
-                <div className="menu-item" key={menu.id}>
+                <div id="menu-item" key={menu.id}>
                   <h3>{menu.name}</h3>
                   <p>{menu.description}</p>
                 </div>
@@ -84,8 +84,8 @@ function MenuPage() {
       {openModal && <MenuModal item={openModal} onClose={handleModalClose} />}
 
       <footer>
-        <div className="page-footer">
-          <div className="contact-info">
+        <div id="page-footer">
+          <div id="contact-info">
             <p>Restaurant Name</p>
             <p>Address</p>
             <p>Phone number</p>
