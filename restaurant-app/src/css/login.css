@@ -1,0 +1,92 @@
+body {
+  background-color: #F0E9E9;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  padding: 0;
+}
+
+/*login modal*/
+#login-container {
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 1rem;
+  border-style: double ;
+  border-color: rgb(217, 222, 225);
+  background: url(../assets/white-background.jpg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: auto;
+  height: auto;
+  font-style: italic;
+}
+
+#login-container h2{
+  color: black;
+  margin-top: 3rem;
+  font-weight: 800;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin-top: 5rem;
+}
+
+#login-input {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-input input {
+  color: black;
+  height: 3vh;
+  width: 35vh;
+  margin: 0.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  border-bottom-style: double ;
+  border-bottom-color: rgb(217, 222, 225);
+  border-right-style: double ;
+  border-right-color: rgb(217, 222, 225);
+  background-color: whitesmoke;
+  font-size: 1rem;
+}
+
+#login-input input:focus {
+  outline-color: rgb(184, 188, 190);
+  border-width: 0.2rem;
+  box-shadow: 0 0 0.3125rem rgb(107, 110, 111);
+  caret-color: gray
+}
+
+#login-form button {
+  color: gray;
+  background-color: whitesmoke;
+  font-weight: 600;
+  border-radius: 1rem;
+  width: 7rem;
+  height: 3rem;
+  margin: 2rem;
+  border: none;
+  border-bottom-style: double ;
+  border-bottom-color: rgb(217, 222, 225);
+  border-right-style: double ;
+  border-right-color: rgb(217, 222, 225);
+}
+
+#login-form button:hover {
+  box-shadow: 0 0 0.3125rem rgb(107, 110, 111);
+  border-width: 0.5rem;
+  background-color: #F0E9E9;
+  color: black;
+  font-weight: 600;
+}

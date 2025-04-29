@@ -1,0 +1,172 @@
+body {
+  background-color: #F0E9E9;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover; /* Adjust the size of the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image */
+  height: auto;
+  width: auto;
+  min-width: 110vh;
+
+  position: relative;
+  background:
+    linear-gradient(to right, #F0E9E9, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, #F0E9E9),
+    url(../assets/white-background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#profile-name {
+    display: flex;
+    justify-content: center;
+    height: 25vh;
+    width: auto;
+}
+
+section h1 {
+    color:black;
+    font-style: italic;
+    font-size: 3rem;
+    margin: 0rem;
+    margin-top: 5rem;
+    padding: 0.2rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  font-style: italic;
+  width: auto;
+  min-width: 50vh;
+  margin: 1rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  border-style: double ;
+  border-color: rgb(217, 222, 225);
+}
+
+.list ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem;
+}
+
+.list li {
+    color:black;
+    text-align: left;
+    margin: 1rem;
+    background-color: #F0E9E9;
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    border-bottom-style: double ;
+    border-bottom-color: rgb(217, 222, 225);
+    border-right-style: double ;
+    border-right-color: rgb(217, 222, 225);
+}
+
+#button-section {
+  text-align: right;
+}
+
+#settings-button {
+    background: none; /* Removes default button background */
+    border: none;     /* Removes default button border */
+    padding: 0;       /* Removes extra padding */
+    margin: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#settings-button img:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+#settings {
+  width: 2rem;
+  height: 2rem;
+  color: black;
+  padding: 0.1rem;
+  margin-right: 1.5rem;
+}
+
+.profile-bottom {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#registered_since {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5rem;
+  border-style: double ;
+  border-color: rgb(217, 222, 225);
+}
+
+#vip {
+    font-weight: bold;
+}
+
+/*HEADER + FOOTER CSS ↓↓*/
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.logo {
+    display: flex;
+}
+
+#logo-image {
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    margin-right: 10px;
+}
+
+.nav-button {
+    font-size: 30px;
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    font-size: 12px;
+}
