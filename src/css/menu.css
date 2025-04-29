@@ -38,6 +38,11 @@
   width: 10rem;
   height: 10rem;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#menu-images img:hover {
+  transform: scale(1.1);
 }
 
 #menu-text-container {
