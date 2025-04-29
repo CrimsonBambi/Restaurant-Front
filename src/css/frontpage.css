@@ -1,0 +1,97 @@
+/*CSS for page header and page footer starts here
+
+.webpage {
+  background-color: #f0e9e9;
+}
+
+.page-container {
+  width: 40%;
+  margin: auto;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.logo {
+  display: flex;
+}
+
+#logo-image {
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  margin-right: 10px;
+}
+
+.navigation {
+
+}
+
+#nav-button {
+  font-size: 30px;
+  margin: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+#contact-info {
+  display: flex;
+  flex-direction: column;
+}
+#page-footer {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid black;
+  font-size: 12px;
+}
+CSS for frontpage content starts here */
+#center-elements {
+  margin: 2rem;
+  position: relative;
+  display: flex;
+}
+
+#primary-image {
+  width: 720px;
+  height: 480px;
+  border: 1px solid black;
+}
+
+#forward-direction-button {
+  width: 50px;
+  height: 50px;
+  margin: 1rem;
+  border-radius: 50%;
+  align-self: center;
+}
+#back-direction-button {
+  width: 50px;
+  height: 50px;
+  margin: 1rem;
+  border-radius: 50%;
+  align-self: center;
+}
+
+#overlaid-text {
+  position: relative;
+  font-size: 30px;
+  width: 400px;
+  top: -40%;
+}
+
+#reservation-space {
+  display: flex;
+  justify-content: center;
+}
+
+#reservation {
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+}
