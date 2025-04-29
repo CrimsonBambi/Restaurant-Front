@@ -1,7 +1,12 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #9f8c8c;
+}
+
 body {
-  background-color: #F0E9E9;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
 }

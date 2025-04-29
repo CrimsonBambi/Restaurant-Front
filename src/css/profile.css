@@ -1,7 +1,4 @@
 
-#root {
-  padding: 0;
-}
 
 main {
     display: flex;
@@ -22,7 +19,7 @@ main {
 
   position: relative;
   background:
-    linear-gradient(to right, #F0E9E9, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, #F0E9E9),
+    linear-gradient(to right, #9f8c8c, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, #9f8c8c),
     url(../assets/white-background.jpg);
   background-size: cover;
   background-position: center;

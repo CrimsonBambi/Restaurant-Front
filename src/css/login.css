@@ -1,6 +1,4 @@
 
-
-
 /*login modal*/
 #login-container {
   display: flex;
@@ -16,6 +14,8 @@
   width: auto;
   max-width: 50vh;
   height: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   font-style: italic;
 }
 
