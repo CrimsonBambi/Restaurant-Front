@@ -4,10 +4,7 @@
   background-color: #f0e9e9;
 }
 
-.page-container {
-  width: 40%;
-  margin: auto;
-}
+
 
 .page-header {
   display: flex;
@@ -51,6 +48,14 @@
   font-size: 12px;
 }
 CSS for frontpage content starts here */
+
+#page-container {
+  display: flex;
+  flex-direction: column; /*remove to get the text on top of the pic if needed*/
+  margin-bottom: 1rem;
+  width: auto;
+  height: autp;
+}
 #center-elements {
   margin: 2rem;
   position: relative;

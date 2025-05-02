@@ -82,18 +82,6 @@ function MenuPage() {
       </main>
 
       {openModal && <MenuModal item={openModal} onClose={handleModalClose} />}
-
-      <footer>
-        <div id="page-footer">
-          <div id="contact-info">
-            <p>Restaurant Name</p>
-            <p>Address</p>
-            <p>Phone number</p>
-            <p>email@email.com</p>
-            <button id="feedback">Leave Feedback!</button>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

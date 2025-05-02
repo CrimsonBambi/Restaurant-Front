@@ -17,6 +17,7 @@ function App() {
 
   return (
     <Router>
+      <>
       <header className="header">
         <div className="restaurant-name">
           <h1>Ravintolan nimi</h1>
@@ -39,6 +40,7 @@ function App() {
         </nav>
       </header>
 
+      <div className="main-container">
       <Routes>
       <Route path="/" element={<Frontpage />} />
         <Route path="/menu" element={<MenuPage />} />
@@ -48,7 +50,22 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/reservations" element={<Reservation />} />
       </Routes>
+      </div>
+
+      <footer>
+        <div id="page-footer">
+          <div id="contact-info">
+            <p>Restaurant Name</p>
+            <p>Address</p>
+            <p>Phone number</p>
+            <p>email@email.com</p>
+            <button id="feedback">Leave Feedback!</button>
+          </div>
+        </div>
+      </footer>
+      </>
     </Router>
+
   );
 }
 

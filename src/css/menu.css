@@ -1,8 +1,15 @@
 /* Kohdistetaan kaikki tyylit vain MenuPage-komponenttiin */
 #menu-webpage {
+  display: flex;
   background-color: #9f8c8c;
-  padding: 2rem;
-  width: 100%;
+  /*padding: 2rem;*/
+  width: auto;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+main {
+  margin: 1rem;
 }
 
 #menu-container {
@@ -64,7 +71,7 @@
   font-family: Segoe Script;
 }
 
-#page-footer {
+/*#page-footer {
   display: flex;
   justify-content: center;
   border-top: 1px solid black;
@@ -74,7 +81,7 @@
 #contact-info {
   display: flex;
   flex-direction: column;
-}
+}*/
 
 /* Modal styles */
 #modal {

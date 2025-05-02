@@ -4,7 +4,7 @@ import '../css/profile.css';
 import logo from '../assets/settings.png';
 
 const Profile = () => {
-  const { user, logout } = useContext(UserContext); // Accessing user data from context
+  const { user} = useContext(UserContext); // Accessing user data from context
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,12 +22,10 @@ const Profile = () => {
   }
 
   return (
-    <main>
-      <div className="main-container">
+      <div className="profile-container">
         <section id="profile-name">
           <h1>Hello {user.name}!</h1> {/* Display user name */}
         </section>
-
         <div className="list">
           <ul>
             <li><strong>Name:</strong> {user.name}</li> {/* Display name */}
@@ -47,10 +45,7 @@ const Profile = () => {
             <p>{new Date(user.registration_time).toLocaleDateString()}</p> {/* Format registration date */}
           </section>
         </div>
-
-
       </div>
-    </main>
   );
 };
 

@@ -19,15 +19,6 @@ const Frontpage = () => {
           </div>
         </div>
       </div>
-      <div id="page-footer">
-        <div id="contact-info">
-          <p>Ravintolan Nimi</p>
-          <p>Osoite</p>
-          <p>Puhelin numero</p>
-          <p>email@email.com</p>
-          <button id="feedback">Jätä Palautetta!</button>
-        </div>
-      </div>
     </>
   );
 };
