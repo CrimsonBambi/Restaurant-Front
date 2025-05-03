@@ -1,11 +1,8 @@
 
 
-main {
-    display: flex;
-    justify-content: center;
-}
 
-.main-container {
+
+.profile-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,11 +13,10 @@ main {
   height: auto;
   width: auto;
   min-width: 110vh;
-
   position: relative;
   background:
-    linear-gradient(to right, #9f8c8c, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, #9f8c8c),
-    url(../assets/white-background.jpg);
+  linear-gradient(to right, #9f8c8c, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, #9f8c8c);
+  background-color: whitesmoke;
   background-size: cover;
   background-position: center;
 }
@@ -44,7 +40,7 @@ section h1 {
 .list {
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: #F0E9E9;
   font-style: italic;
   width: auto;
   min-width: 50vh;
@@ -65,7 +61,7 @@ section h1 {
     color:black;
     text-align: left;
     margin: 1rem;
-    background-color: #F0E9E9;
+    background-color: whitesmoke;
     border-radius: 0.5rem;
     padding: 0.6rem;
     border-bottom-style: double ;
@@ -112,7 +108,7 @@ section h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: #F0E9E9;
   width: 10rem;
   height: 10rem;
   border-radius: 5rem;

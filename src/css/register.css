@@ -1,9 +1,4 @@
 
-
-#root {
-  padding: 0;
-}
-
 #register-container {
   justify-content: center;
   align-items: center;
@@ -11,7 +6,7 @@
   border-radius: 1rem;
   border-style: double ;
   border-color: rgb(217, 222, 225);
-  background: url(../assets/white-background.jpg);
+  background-color: #F0E9E9;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   width: auto;
   height: auto;

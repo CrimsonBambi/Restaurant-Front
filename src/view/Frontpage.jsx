@@ -1,7 +1,10 @@
-import React from 'react';
+import {React, useState} from 'react';
 import '../css/frontpage.css';
+import ReservationForm from '../component/ReservationForm';
 
 const Frontpage = () => {
+  const [showEdit, setShowEdit] = useState(false);
+
   return (
     <>
       <div id="page-container">
@@ -15,17 +18,17 @@ const Frontpage = () => {
             A Symphony of Flavours Crafted To Perfection
           </div>
           <div id="reservation-space">
-            <button id="reservation">Varaa Pöytä</button>
+            <button
+              id="reservation"
+              onClick={() => {
+                console.log('edit button clicked');
+                setShowEdit(true);
+              }}
+            >
+              Varaa Pöytä
+            </button>
+            {showEdit && <ReservationForm onClose={() => setShowEdit(false)} />}
           </div>
-        </div>
-      </div>
-      <div id="page-footer">
-        <div id="contact-info">
-          <p>Ravintolan Nimi</p>
-          <p>Osoite</p>
-          <p>Puhelin numero</p>
-          <p>email@email.com</p>
-          <button id="feedback">Jätä Palautetta!</button>
         </div>
       </div>
     </>

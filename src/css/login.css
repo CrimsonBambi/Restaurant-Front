@@ -23,6 +23,7 @@
   color: black;
   margin-top: 3rem;
   font-weight: 800;
+  font-size: xx-large;
 }
 
 #login-form {
@@ -32,7 +33,7 @@
   align-items: center;
   width: auto;
   height: auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 #login-input {
