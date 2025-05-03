@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
-import { UserContext } from '../context/UserContext';
-import { useNavigate } from 'react-router-dom';
+import {useContext, useState} from 'react';
+import {UserContext} from '../context/UserContext';
+import {useNavigate} from 'react-router';
 import '../css/login.css';
 
 const Login = () => {
-  const { login } = useContext(UserContext);
+  const {login} = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -14,11 +14,14 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://10.120.32.81/restaurant/api/v1/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        'http://10.120.32.81/restaurant/api/v1/auth/login',
+        {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({email, password}),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -43,8 +46,21 @@ const Login = () => {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit} id="login-form">
         <div id="login-input">
-          <input type="email" value={email} placeholder="Käyttäjä" onChange={(e) => setEmail(e.target.value)} required />
-          <input type="password" id="password" value={password} placeholder="Salasana" onChange={(e) => setPassword(e.target.value)} required />
+          <input
+            type="email"
+            value={email}
+            placeholder="Käyttäjä"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            value={password}
+            placeholder="Salasana"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
         <button type="submit">Kirjaudu</button>
       </form>

@@ -1,10 +1,9 @@
-
-import { useContext, useEffect } from 'react';
-import { UserContext } from '../context/UserContext';
-import { useNavigate } from 'react-router-dom';
+import {useContext, useEffect} from 'react';
+import {UserContext} from '../context/UserContext';
+import {useNavigate} from 'react-router';
 
 const Logout = () => {
-  const { logout } = useContext(UserContext);
+  const {logout} = useContext(UserContext);
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
@@ -20,7 +19,6 @@ const Logout = () => {
 };
 
 export default Logout;
-
 
 /*const Logout = () => {
   const navigate = useNavigate();
@@ -43,4 +41,3 @@ export default Logout;
 };
 
 export default Logout;*/
-
