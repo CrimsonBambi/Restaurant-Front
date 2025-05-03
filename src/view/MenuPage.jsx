@@ -3,19 +3,9 @@ import MenuItem from "./MenuItem";
 import MenuModal from "./MenuModal";
 import "../css/menu.css";
 
-import menu1 from "../assets/menu1.jpg";
-import menu2 from "../assets/menu2.jpg";
-import menu3 from "../assets/menu3.jpg";
-
 function MenuPage() {
   const [openModal, setOpenModal] = useState(null);
   const [fetchedMenus, setFetchedMenus] = useState([]);
-
-  const menuImages = {
-    1: menu1,
-    2: menu2,
-    3: menu3,
-  };
 
   useEffect(() => {
     const fetchMenus = async () => {
@@ -30,7 +20,7 @@ function MenuPage() {
 
         const menusWithImages = results.map((menu) => ({
           ...menu,
-          image: menuImages[menu.id],
+          image: `http://10.120.32.81/restaurant/uploads/${menu.image}`,
         }));
 
         setFetchedMenus(menusWithImages);
