@@ -43,7 +43,6 @@ const Login = () => {
   return (
     <div id="login-container">
       <h2>Kirjaudu Sisään</h2>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit} id="login-form">
         <div id="login-input">
           <input
@@ -62,6 +61,7 @@ const Login = () => {
             required
           />
         </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit">Kirjaudu</button>
       </form>
     </div>

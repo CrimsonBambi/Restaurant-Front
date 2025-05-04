@@ -1,7 +1,4 @@
 
-
-
-
 .profile-container {
   display: flex;
   flex-direction: column;
@@ -22,26 +19,25 @@
 }
 
 #profile-name {
-    display: flex;
-    justify-content: center;
-    height: 25vh;
-    width: auto;
+  display: flex;
+  justify-content: center;
+  height: 25vh;
+  width: auto;
 }
 
 section h1 {
-    color:black;
-    font-style: italic;
-    font-size: 3rem;
-    margin: 0rem;
-    margin-top: 5rem;
-    padding: 0.2rem;
+  color:black;
+  font-style: italic;
+  font-size: 3rem;
+  margin: 0rem;
+  margin-top: 5rem;
+  padding: 0.2rem;
 }
 
 .list {
   display: flex;
   flex-direction: column;
   background-color: #F0E9E9;
-  font-style: italic;
   width: auto;
   min-width: 50vh;
   margin: 1rem;
@@ -52,22 +48,23 @@ section h1 {
 }
 
 .list ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem;
 }
 
 .list li {
-    color:black;
-    text-align: left;
-    margin: 1rem;
-    background-color: whitesmoke;
-    border-radius: 0.5rem;
-    padding: 0.6rem;
-    border-bottom-style: double ;
-    border-bottom-color: rgb(217, 222, 225);
-    border-right-style: double ;
-    border-right-color: rgb(217, 222, 225);
+  color:black;
+  text-align: left;
+  margin: 1rem;
+  background-color: whitesmoke;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  border-bottom-style: double ;
+  border-bottom-color: rgb(217, 222, 225);
+  border-right-style: double ;
+  border-right-color: rgb(217, 222, 225);
+  font-size: 19px;
 }
 
 #button-section {
@@ -75,11 +72,11 @@ section h1 {
 }
 
 #settings-button {
-    background: none; /* Removes default button background */
-    border: none;     /* Removes default button border */
-    padding: 0;       /* Removes extra padding */
-    margin: 0.5rem;
-    margin-bottom: 1rem;
+  background: none; /* Removes default button background */
+  border: none;     /* Removes default button border */
+  padding: 0;       /* Removes extra padding */
+  margin: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 #settings-button img:hover {
@@ -96,10 +93,10 @@ section h1 {
 }
 
 .profile-bottom {
-    display: flex;
-    flex-direction: row;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 #registered_since {
@@ -114,48 +111,171 @@ section h1 {
   border-radius: 5rem;
   border-style: double ;
   border-color: rgb(217, 222, 225);
+  font-size: 20px;
+  padding: 0.1rem;
 }
 
 #vip {
-    font-weight: bold;
+  padding: 0.1rem;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 /*HEADER + FOOTER CSS ↓↓*/
 .page-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
 }
 
 .logo {
-    display: flex;
+  display: flex;
 }
 
 #logo-image {
-    height: 50px;
-    width: 50px;
-    border: 2px solid black;
-    margin-right: 10px;
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  margin-right: 10px;
 }
 
 .nav-button {
-    font-size: 30px;
-    margin: 1rem;
-    text-align: center;
-    text-decoration: none;
-    color: black;
+  font-size: 30px;
+  margin: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: black;
 }
 
 .contact-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-footer {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid black;
-    font-size: 12px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid black;
+  font-size: 12px;
+}
+
+/*Setting's modal*/
+.modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  background: #F0E9E9;
+  padding: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border-radius: 1rem;
+  max-width: 70vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-style: double ;
+  border-color: rgb(217, 222, 225);
+}
+
+#close-button {
+  border-style: none;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 1rem;
+  background-color: #F0E9E9;
+  padding: 0;
+}
+
+#close-button:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 30px;
+  font-style: italic;
+  padding: 0.1rem;
+}
+
+.modal label {
+  width: 10rem;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0.1rem;
+}
+
+.modal input {
+  color: black;
+  background-color: whitesmoke;
+  height: 3vh;
+  width: 35vh;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  border-bottom-style: double ;
+  border-bottom-color: rgb(217, 222, 225);
+  border-right-style: double ;
+  border-right-color: rgb(217, 222, 225);
+  font-size: 1rem;
+}
+
+.modal input:focus {
+  outline-color: rgb(184, 188, 190);
+  border-width: 0.2rem;
+  box-shadow: 0 0 0.3125rem rgb(107, 110, 111);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 1rem;
+  gap: 6rem;
+}
+
+.modal-buttons button {
+  border-style: none;
+  border-radius: 0.5rem;
+  border-bottom-style: double ;
+  border-bottom-color: rgb(217, 222, 225);
+  border-right-style: double ;
+  border-right-color: rgb(217, 222, 225);
+  width: 5rem;
+  height: 2.2rem;
+  font-weight: bold;
+  font-size: 17px;
+  color: #aaa;
+  background-color: whitesmoke;
+}
+
+.modal-buttons button:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-bottom-color: rgb(197, 201, 203);
+  border-right-color: rgb(197, 201, 203);
 }
