@@ -11,7 +11,6 @@ function MenuModal({ item, onClose }) {
         <span id="close" onClick={onClose}>
           &times;
         </span>
-        <h2>{item.name}</h2>
         <img src={item.image} alt={item.name} />
         <h2>{item.name}</h2>
 

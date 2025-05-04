@@ -126,3 +126,58 @@ main {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Modalin header and img */
+#modal-content h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+#modal-content img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Signle dish */
+.dish-item {
+  text-align: left;
+  background-color: #f5f0f0;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Dish name */
+.dish-item h4 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+
+/* Description and price */
+.dish-item p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
+/* Allergens title */
+.dish-item h5 {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Allergens listing */
+.dish-item ul {
+  padding-left: 1.2rem;
+  margin-top: 0.3rem;
+}
+
+.dish-item ul li {
+  list-style-type: disc;
+  font-size: 0.95rem;
+  margin-left: 1rem;
+}
