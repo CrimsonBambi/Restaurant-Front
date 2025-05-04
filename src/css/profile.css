@@ -16,6 +16,7 @@
   background-color: whitesmoke;
   background-size: cover;
   background-position: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #profile-name {
@@ -28,7 +29,7 @@
 section h1 {
   color:black;
   font-style: italic;
-  font-size: 3rem;
+  font-size: 48px;
   margin: 0rem;
   margin-top: 5rem;
   padding: 0.2rem;

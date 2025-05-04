@@ -12,16 +12,18 @@
   height: auto;
   animation: fadeIn 0.3s ease-out;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
 #register-container h2 {
   color: black;
+  margin-top: 3rem;
+  font-weight: bold;
+  font-size: xx-large;
   font-style: italic;
-  font-size: 30px;
 }
+
 #register-form {
   display: flex;
   flex-direction: column;
