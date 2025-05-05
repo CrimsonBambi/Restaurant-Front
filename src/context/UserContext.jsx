@@ -1,5 +1,6 @@
 // src/context/UserContext.jsx
 import { createContext, useState, useEffect } from 'react';
+import {deleteUserById} from '../utils/user.js';
 
 export const UserContext = createContext();
 
@@ -33,8 +34,26 @@ export const UserProvider = ({ children }) => {
     setUser(updated);
   };
 
+  const deleteUser = async (id) => {
+    const userConfirmed = confirm("Are you sure you want to delete your user?");
+    if (userConfirmed) {
+      try {
+        const result = await deleteUserById(id);
+        if (result) {
+          console.log('User deleted succesfully.');
+          logout(); // redirect will happen after this
+        } else {
+          alert("User could not be deleted.");
+        }
+      } catch (error) {
+        console.error("Delete failed:", error);
+        alert("An error occurred while deleting the user.");
+      }
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ user, login, logout, updateUser }}>
+    <UserContext.Provider value={{ user, login, logout, updateUser, deleteUser }}>
       {children}
     </UserContext.Provider>
   );
