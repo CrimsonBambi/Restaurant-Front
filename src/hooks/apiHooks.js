@@ -15,7 +15,16 @@ const useReservation = () => {
     console.log('inputs in promise', inputs);
     return await fetchData(reserveUrl, fetchOptions);
   };
-  return {postReservation};
+  const getReserations = async () => {
+    const fetchOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    return await fetchData(reserveUrl, fetchOptions);
+  };
+  return {postReservation, getReserations};
 };
 
 export {useReservation};
