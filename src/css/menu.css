@@ -104,7 +104,7 @@ main {
   padding: 2rem;
   border: 1px solid #888;
   width: 80%;
-  max-height: 50rem;
+  max-height: 90vh;
   overflow-y: auto;
   text-align: center;
   border-radius: 1rem;
