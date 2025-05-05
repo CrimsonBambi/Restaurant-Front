@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchData } from '../utils/fetchData';
+import "../css/info.css";
 
 const RestaurantInfo = () => {
     const [restaurantInfo, setRestaurantInfo] = useState(null);
@@ -37,7 +38,6 @@ const RestaurantInfo = () => {
             <main>
                 <div id="restaurant-container">
                     <div id="restaurant-heading-container">
-                        <h2 id="restaurant-heading">Yhteystiedot</h2>
                     </div>
                     <div id="restaurant-content">
                         <div id="restaurant-info">

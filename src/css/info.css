@@ -1,0 +1,61 @@
+#restaurant-container {
+    width: 100%;
+    max-width: 75rem;
+    background-color: #F0E9E9;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#restaurant-heading-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#restaurant-heading {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+}
+
+#restaurant-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+
+#restaurant-info h3,
+#opening-hours h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+#restaurant-info p,
+#opening-hours p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+#opening-hours ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#opening-hours li {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+#opening-hours li:nth-child(even) {
+    background-color: #e0d2d2;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
