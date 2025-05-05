@@ -1,3 +1,5 @@
+// renders a single clickable menu image.
+
 import React from 'react';
 
 

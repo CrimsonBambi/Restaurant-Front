@@ -1,3 +1,5 @@
+// renders a modal with menu and dish information
+
 import React from "react";
 
 function MenuModal({ item, onClose }) {

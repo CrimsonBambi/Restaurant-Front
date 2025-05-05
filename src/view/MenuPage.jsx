@@ -1,31 +1,31 @@
+
+// fetches and displays all menus. Clicking a menu image opens a modal with more details.
+
 import React, { useState, useEffect } from "react";
 import MenuItem from "./MenuItem";
 import MenuModal from "./MenuModal";
 import "../css/menu.css";
+import { fetchData } from "../utils/fetchData"; // Reusable fetch helper
 
 function MenuPage() {
-  const [openModal, setOpenModal] = useState(null);
-  const [fetchedMenus, setFetchedMenus] = useState([]);
+  const [openModal, setOpenModal] = useState(null); // Currently opened modal data
+  const [fetchedMenus, setFetchedMenus] = useState([]); // All fetched menu data
 
   useEffect(() => {
     const fetchMenus = async () => {
       try {
-        const ids = [1, 2, 3];
-        const promises = ids.map((id) =>
-          fetch(`http://10.120.32.81/restaurant/api/v1/menus/${id}`).then((res) =>
-            res.json()
-          )
-        );
-        const results = await Promise.all(promises);
+        // Fetch all menus from backend
+        const menus = await fetchData("http://10.120.32.81/restaurant/api/v1/menus");
 
-        const menusWithImages = results.map((menu) => ({
+        // Attach full image URLs for rendering
+        const menusWithImages = menus.map((menu) => ({
           ...menu,
           image: `http://10.120.32.81/restaurant/uploads/${menu.image}`,
         }));
 
         setFetchedMenus(menusWithImages);
       } catch (error) {
-        console.error("Error fetching the menus:", error);
+        console.error("Error fetching the menus:", error.message);
       }
     };
 
@@ -46,7 +46,7 @@ function MenuPage() {
         <div id="menu-container">
           <div id="menu-heading-container">
             <h2 id="menu-heading">
-              Saat lisätietoja menun sisällöstä klikkaamalla kuvaa
+              Click an image to view more details about the menu
             </h2>
           </div>
           <div id="menu-content">
