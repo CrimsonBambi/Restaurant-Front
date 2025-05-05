@@ -1,10 +1,21 @@
 import React from 'react';
+import {fetchData} from '../utils/fetchData.js';
 
-const useReseevation = () => {
-  const postReservation = () => {
-    console.log('Does stuff');
+const reserveUrl = 'http://10.120.32.81/restaurant/api/v1/reserve';
+
+const useReservation = () => {
+  const postReservation = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    console.log('inputs in promise', inputs);
+    return await fetchData(reserveUrl, fetchOptions);
   };
   return {postReservation};
 };
 
-export {useReseevation};
+export {useReservation};

@@ -44,7 +44,7 @@ const Register = () => {
 
         <div className="register-input">
           <div id="register-input-left">
-              <label><strong>Koko nimi</strong></label>
+              <label><strong>Nimi</strong></label>
               <input type="text" value={name} placeholder="Syötä koko nimi" onChange={(e) => setName(e.target.value)}required />
               <label><strong>Sähköpostioisoite</strong></label>
               <input type="email" value={email} placeholder="Syötä sähköpostiosoite" onChange={(e) => setEmail(e.target.value)}required />
@@ -57,10 +57,10 @@ const Register = () => {
             <label><strong>Varmista salasana</strong></label>
             <input type="password" value={confirmPassword} placeholder="Syötä salasana uudelleen" onChange={(e) => setConfirmPassword(e.target.value)} required />
             <div id='error'>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
             </div>
           </div>
         </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
           <button type="submit">Rekisteröidy</button>
       </form>
     </div>

@@ -28,9 +28,15 @@ export const UserProvider = ({ children }) => {
     setUser(null);
   };
 
+  const updateUser = (updated) => {
+    localStorage.setItem('user', JSON.stringify(updated));
+    setUser(updated);
+  };
+
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout, updateUser }}>
       {children}
     </UserContext.Provider>
   );
 };
+

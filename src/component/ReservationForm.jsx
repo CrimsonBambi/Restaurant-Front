@@ -1,21 +1,25 @@
 import React from 'react';
 import useForm from '../hooks/formHooks';
+import {useReservation} from '../hooks/apiHooks';
 
 const ReservationForm = () => {
-  /*const initValues = {
-    username: '',
-    password: '',
-  };*/
+  const {postReservation} = useReservation();
+  const initValues = {
+    person_id: 2,
+    restaurant_id: 1,
+  };
 
   const doReservation = async () => {
     console.log('register funktiota kutsuttu');
+    inputs.table_id = 1;
+    inputs.registered_user = 1;
     console.log('inputs', inputs);
-    //await postUser(inputs);
+    await postReservation(inputs);
   };
 
   const {inputs, handleInputChange, handleSubmit} = useForm(
-    doReservation
-    /*initValues*/
+    doReservation,
+    initValues
   );
 
   return (
@@ -24,31 +28,31 @@ const ReservationForm = () => {
         <h1>Reservation</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="reservation-name">Reservation Name</label>
+            <label htmlFor="reservation_name">Reservation Name</label>
             <input
-              name="reservation-name"
+              name="reservation_name"
               type="text"
-              id="reservation-name"
+              id="reservation_name"
               onChange={handleInputChange}
               //autoComplete="username"
             />
           </div>
           <div>
-            <label htmlFor="reservation-start">Start of Reservation</label>
+            <label htmlFor="reservation_start">Start of Reservation</label>
             <input
-              name="reservation-start"
+              name="reservation_start"
               type="text"
-              id="reservation-start"
+              id="reservation_start"
               onChange={handleInputChange}
               //autoComplete="current-password"
             />
           </div>
           <div>
-            <label htmlFor="reservation-end">End of Reservation</label>
+            <label htmlFor="reservation_end">End of Reservation</label>
             <input
-              name="reservation-end"
+              name="reservation_end"
               type="text"
-              id="reservation-end"
+              id="reservation_end"
               onChange={handleInputChange}
               //autoComplete="email"
             />

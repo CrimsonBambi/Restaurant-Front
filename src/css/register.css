@@ -12,14 +12,18 @@
   height: auto;
   animation: fadeIn 0.3s ease-out;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-style: italic;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
 #register-container h2 {
   color: black;
+  margin-top: 3rem;
+  font-weight: bold;
+  font-size: xx-large;
+  font-style: italic;
 }
+
 #register-form {
   display: flex;
   flex-direction: column;
@@ -76,30 +80,35 @@
   margin: 0.4rem;
 }
 
-/*register modal buttons*/
-
+#register-form {
+  display: flex;
+  padding: 2rem;
+}
 
 #register-form button {
-  color: gray;
-  font-weight: 600;
-  border-radius: 1rem;
-  width: 7rem;
-  height: 3rem;
-  margin: 2rem;
-  border: none;
-  background-color: whitesmoke;
+  border-style: none;
+  border-radius: 0.5rem;
   border-bottom-style: double ;
   border-bottom-color: rgb(217, 222, 225);
   border-right-style: double ;
   border-right-color: rgb(217, 222, 225);
+  width: 7rem;
+  height: 2.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 17px;
+  color: #aaa;
+  background-color: whitesmoke;
 }
 
 #register-form button:hover {
-  box-shadow: 0 0 0.3125rem rgb(107, 110, 111);
-  border-width: 0.5rem;
-  background-color: #F0E9E9;
+  /*box-shadow: 0 0 0.3125rem rgb(107, 110, 111);*/
   color: black;
-  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-bottom-color: rgb(197, 201, 203);
+  border-right-color: rgb(197, 201, 203);
 }
 
 #error {
@@ -114,11 +123,11 @@
   background-color:whitesmoke;
 }
 
-
 .error-message {
-  margin-left: 1rem;
-  margin-right: 1rem;
   width: auto;
   height: auto;
   color: brown;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0.1rem;
 }
