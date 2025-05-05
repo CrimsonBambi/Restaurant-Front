@@ -1,17 +1,19 @@
 import React from 'react';
 import useForm from '../hooks/formHooks';
 import {useReservation} from '../hooks/apiHooks';
+import {UserContext} from '../context/UserContext';
 
 const ReservationForm = () => {
+  const {user} = UserContext;
   const {postReservation} = useReservation();
+  let idOfUser = user ? user.id : 2;
   const initValues = {
-    person_id: 2,
+    person_id: idOfUser,
     restaurant_id: 1,
   };
 
   const doReservation = async () => {
     console.log('register funktiota kutsuttu');
-    inputs.table_id = 1;
     inputs.registered_user = 1;
     console.log('inputs', inputs);
     await postReservation(inputs);
@@ -24,6 +26,7 @@ const ReservationForm = () => {
 
   return (
     <>
+      {console.log(idOfUser)}
       <dialog open>
         <h1>Reservation</h1>
         <form onSubmit={handleSubmit}>
@@ -34,7 +37,6 @@ const ReservationForm = () => {
               type="text"
               id="reservation_name"
               onChange={handleInputChange}
-              //autoComplete="username"
             />
           </div>
           <div>
@@ -43,8 +45,8 @@ const ReservationForm = () => {
               name="reservation_start"
               type="text"
               id="reservation_start"
+              placeholder="YYYY-MM-DD HH:MM"
               onChange={handleInputChange}
-              //autoComplete="current-password"
             />
           </div>
           <div>
@@ -53,8 +55,17 @@ const ReservationForm = () => {
               name="reservation_end"
               type="text"
               id="reservation_end"
+              placeholder="YYYY-MM-DD HH:MM"
               onChange={handleInputChange}
-              //autoComplete="email"
+            />
+          </div>
+          <div>
+            <label htmlFor="table_id">Table</label>
+            <input
+              name="table_id"
+              type="number"
+              id="table_id"
+              onChange={handleInputChange}
             />
           </div>
           <button type="submit">Reserve</button>
