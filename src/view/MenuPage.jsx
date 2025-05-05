@@ -2,8 +2,8 @@
 // fetches and displays all menus. Clicking a menu image opens a modal with more details.
 
 import React, { useState, useEffect } from "react";
-import MenuItem from "./MenuItem";
-import MenuModal from "./MenuModal";
+import MenuItem from "../component/MenuItem";
+import MenuModal from "../component/MenuModal";
 import "../css/menu.css";
 import { fetchData } from "../utils/fetchData"; // Reusable fetch helper
 
@@ -46,7 +46,7 @@ function MenuPage() {
         <div id="menu-container">
           <div id="menu-heading-container">
             <h2 id="menu-heading">
-              Click an image to view more details about the menu
+              Saat lisätietoja menun sisällöstä klikkaamalla kuvaa
             </h2>
           </div>
           <div id="menu-content">
