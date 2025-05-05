@@ -8,20 +8,46 @@ import './css/header.css';
 import './App.css';
 import Reservation from './view/Reservation';
 import Frontpage from './view/Frontpage';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { UserContext } from './context/UserContext';
 import RestaurantInfo from './view/RestaurantInfo';
+import { fetchData } from './utils/fetchData';
 
 function App() {
-
   const { user } = useContext(UserContext);
+  const [restaurantInfo, setRestaurantInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchRestaurantData = async () => {
+      try {
+        const info = await fetchData('http://10.120.32.81/restaurant/api/v1/info');
+        setRestaurantInfo(info);
+      } catch (err) {
+        setError('Error fetching restaurant info');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRestaurantData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <Router>
       <>
         <header className="header">
           <div className="restaurant-name">
-            <h1>Ravintolan nimi</h1>
+            <h1>{restaurantInfo ? restaurantInfo.name : 'Ravintolan nimi'}</h1>
           </div>
 
           <nav className="nav">
@@ -58,17 +84,22 @@ function App() {
         <footer>
           <div id="page-footer">
             <div id="contact-info">
-              <p>Restaurant Name</p>
-              <p>Address</p>
-              <p>Phone number</p>
-              <p>email@email.com</p>
+              {restaurantInfo ? (
+                <>
+                  <p>{restaurantInfo.name}</p>
+                  <p>{restaurantInfo.address}, {restaurantInfo.postal_code} {restaurantInfo.city}</p>
+                  <p>Puh.nro: {restaurantInfo.contact_number}</p>
+                  <p>Sähköposti: {restaurantInfo.email}</p>
+                </>
+              ) : (
+                <p>Loading contact info...</p>
+              )}
               <button id="feedback">Leave Feedback!</button>
             </div>
           </div>
         </footer>
       </>
     </Router>
-
   );
 }
 
