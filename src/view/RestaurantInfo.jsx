@@ -10,8 +10,8 @@ const RestaurantInfo = () => {
     useEffect(() => {
         const fetchRestaurantData = async () => {
             try {
-                const info = await fetchData('http://10.120.32.81/restaurant/api/v1/restaurant');
-                const hours = await fetchData('http://10.120.32.81/restaurant/api/v1/restaurant/1/opening-hours');
+                const info = await fetchData('http://10.120.32.81/restaurant/api/v1/info');
+                const hours = await fetchData('http://10.120.32.81/restaurant/api/v1/opening-hours/1');
                 setRestaurantInfo(info);
                 setOpeningHours(hours);
             } catch (err) {
@@ -49,7 +49,7 @@ const RestaurantInfo = () => {
                                     <p>Sähköposti: {restaurantInfo.email}</p>
                                 </div>
                             )}
-                        
+
                         </div>
 
                         <div id="opening-hours">
