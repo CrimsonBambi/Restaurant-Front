@@ -105,7 +105,8 @@
   margin-bottom: 0.5rem;
   border-radius: 6px;
   background-color: #f9f9f9;
-  width: 300px; /* or 100%, depending on your layout */
+  width: 100%;
+  max-width: 50vh;
 }
 
 .dish-name {
@@ -147,7 +148,7 @@
 }
 
 /*MODALS*/
-
+/*menu modal*/
 .menu-modal {
   position: fixed;
   top: 0;
@@ -254,4 +255,74 @@ textarea:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+/*dishes modal*/
+.menu-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#menu-modal-content {
+  background-color: #F0E9E9;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+#menu-modal-content h5 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#menu-modal-content input,
+#menu-modal-content textarea,
+#menu-modal-content select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+#menu-modal-content textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+
+
+#close-menu-modal {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
