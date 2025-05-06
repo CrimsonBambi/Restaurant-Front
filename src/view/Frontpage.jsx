@@ -9,7 +9,6 @@ import front4 from '../assets/front4.jpg';
 
 const Frontpage = () => {
   const [showEdit, setShowEdit] = useState(false);
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [front1, front2, front3, front4];
@@ -46,14 +45,17 @@ const Frontpage = () => {
               &gt;
             </button>
           </div>
+
           <div id="overlaid-text">
             A Symphony of Flavours<br />
             Crafted To Perfection
           </div>
+
           <div id="meal-selection-info">
             Rekisteröityneet käyttäjät voivat valita mieleisensä aterian jo varauksen yhteydessä. <br />
             Tämä tekee vierailustasi ravintolassamme entistäkin sujuvampaa ja miellyttävämpää.
           </div>
+
           <div id="reservation-space">
             <button
               id="reservation"
@@ -64,7 +66,11 @@ const Frontpage = () => {
             >
               Varaa Pöytä
             </button>
-            {showEdit && <ReservationForm onClose={() => setShowEdit(false)} />}
+
+            {/* Modal rendered here */}
+            {showEdit && (
+              <ReservationForm onClose={() => setShowEdit(false)} />
+            )}
           </div>
         </div>
       </div>
