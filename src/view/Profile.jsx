@@ -1,14 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 import '../css/profile.css';
 import logo from '../assets/settings.png';
 
 const Profile = () => {
-  const { user, updateUser} = useContext(UserContext); // Accessing user data from context
+  const { user, updateUser, deleteUser} = useContext(UserContext); // Accessing user data from context
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone_number: '' })
   const [errorMessage, setErrorMessage] = useState('')
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
@@ -20,6 +22,12 @@ const Profile = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleDelete = async () => {
+    await deleteUser(user.id);
+    navigate('/'); // redirect after logout
+  };
+
 
   const handleSave = async (e) => {
     e.preventDefault();
@@ -122,6 +130,7 @@ const Profile = () => {
             <input name='confirmPassword' value={formData.confirmPassword} onChange={handleChange} />
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className="modal-buttons">
+              <button onClick={handleDelete}>Poista Käyttäjä</button>
               <button type='submit'>Tallenna</button>
             </div>
           </div>
