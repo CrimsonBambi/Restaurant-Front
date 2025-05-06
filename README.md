@@ -40,3 +40,6 @@ To run the application locally on your computer:
    means.
 3. Launch the application via npm run dev
 4. Follow the url provided by Vite
+
+### Project Feedback Form
+[Leave Feedback!](https://docs.google.com/forms/d/e/1FAIpQLSc-TwLOgZ9pyWJg2W9m80UVJZmgRvoQTg-5IVJXjyXH_EG6ig/viewform?usp=dialog)
