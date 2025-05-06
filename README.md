@@ -32,5 +32,6 @@ To run the application locally on your computer:
 1. Copy the Restaurant-Front repository to your chosen location on your computer
 2. Navigate to the chosen location via terminal, PowerShell, command prompt or similiar
    means.
-3. Launch the application via npm run dev
-4. Follow the url provided by Vite
+3. Install all necessary packages via command: npm i
+4. Launch the application via command: npm run dev
+5. Follow the url provided by Vite
