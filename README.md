@@ -2,6 +2,9 @@
 
 ## Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
+[Linkki APIdociin](http://10.120.32.81/~tarunip/docs/index.html)
+
+
 ### Idea, Functionalities and Intended Audience
 
 This application is website for a fine dining restaurant intended for customers
