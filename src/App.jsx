@@ -4,6 +4,7 @@ import Login from './view/Login';
 import Logout from './view/Logout';
 import Register from './view/Register';
 import MenuPage from './view/MenuPage';
+import Management from './view/Management';
 import './css/header.css';
 import './App.css';
 import Reservation from './view/Reservation';
@@ -57,6 +58,9 @@ function App() {
             {user ? (
               <>
                 <Link to="/profile" className="nav-link">Profiili</Link>
+                {user.role === 'admin' && (
+                  <Link to="/management" className="nav-link">Hallinta</Link>
+                )}
                 <Link to="/logout" className="nav-link">Kirjaudu Ulos</Link>
               </>
             ) : (
@@ -78,6 +82,7 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Register />} />
             <Route path="/reservations" element={<Reservation />} />
+            <Route path="/management" element={user?.role === 'admin' ? <Management /> : <Link to="/" />} />
           </Routes>
         </div>
 

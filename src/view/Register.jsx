@@ -24,12 +24,21 @@ const Register = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        setErrorMessage(errorData.message || 'Login failed');
+        setErrorMessage(errorData.message || 'Registeration failed');
         return;
       }
 
       const data = await response.json();
-      console.log('Login successful', data);
+      console.log('Register successful', data);
+      alert('Succesful registeration! You can login now');
+
+      // Clear form fields
+      setName('');
+      setEmail('');
+      setNumber('');
+      setPassword('');
+      setConfirmPassword('');
+      setErrorMessage('');
 
     } catch (error) {
       console.error('Error during login', error);
@@ -49,7 +58,7 @@ const Register = () => {
               <label><strong>Sähköpostioisoite</strong></label>
               <input type="email" value={email} placeholder="Syötä sähköpostiosoite" onChange={(e) => setEmail(e.target.value)}required />
               <label><strong>Puhelinnumero</strong></label>
-              <input type="text" nvalue={phone_number} placeholder="Syötä puhelinnumero" onChange={(e) => setNumber(e.target.value)} required />
+              <input type="text" value={phone_number} placeholder="Syötä puhelinnumero" onChange={(e) => setNumber(e.target.value)} required />
           </div>
           <div id="register-input-right">
           <label><strong>Salasana</strong></label>
