@@ -51,11 +51,12 @@ CSS for frontpage content starts here */
 
 #page-container {
   display: flex;
-  flex-direction: column; /*remove to get the text on top of the pic if needed*/
+  flex-direction: column;
   margin-bottom: 1rem;
   width: auto;
-  height: autp;
+  height: auto;
 }
+
 #center-elements {
   margin: 2rem;
   position: relative;
@@ -65,7 +66,25 @@ CSS for frontpage content starts here */
 #primary-image {
   width: 720px;
   height: 480px;
-  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+}
+
+#primary-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#primary-image img.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 #forward-direction-button {
@@ -75,6 +94,7 @@ CSS for frontpage content starts here */
   border-radius: 50%;
   align-self: center;
 }
+
 #back-direction-button {
   width: 50px;
   height: 50px;
@@ -84,10 +104,16 @@ CSS for frontpage content starts here */
 }
 
 #overlaid-text {
-  position: relative;
-  font-size: 30px;
-  width: 400px;
-  top: -40%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 2rem;
+  z-index: 2;
 }
 
 #reservation-space {
@@ -99,4 +125,12 @@ CSS for frontpage content starts here */
   width: 100px;
   height: 50px;
   border-radius: 20px;
+}
+
+#meal-selection-info {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #000000;
+  padding: 2rem;
 }

@@ -1,20 +1,20 @@
-import {React, useEffect, useState} from 'react';
-import {Calendar, momentLocalizer} from 'react-big-calendar';
+import { React, useEffect, useState } from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import {useReservation} from '../hooks/apiHooks';
+import { useReservation } from '../hooks/apiHooks';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const localizer = momentLocalizer(moment);
 
 const Reservation = () => {
-  const {getReserations} = useReservation();
+  const { getReserations } = useReservation();
 
   let events = [];
   const [myEvents, setEvents] = useState(events);
 
   const updateEvents = (start, end, title) => {
-    setEvents((prev) => [...prev, {start, end, title}]);
+    setEvents((prev) => [...prev, { start, end, title }]);
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Reservation = () => {
           defaultDate={new Date()}
           defaultView="week"
           events={myEvents}
-          style={{height: '100vh'}}
+          style={{ height: '100vh' }}
         />
       </div>
     </>
