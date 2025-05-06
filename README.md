@@ -2,11 +2,11 @@
 
 # Idea, Functionalities and Intended Audience
 
-This application is website for a fine dining restaurant intended for customers
-and restaurant staff.
+This application is a website for a fine dining restaurant intended for customers
+and restaurant staff.  
 For customers the application allows for making a reservation at the restaurant, viewing current
 menus and their included dishes, creating an account and viewing contact information
-of the restaurant.
+of the restaurant.  
 For restaurant staff the application allows for altering the menu, including adding dishes to it,
 changing the contents of the dishes and including or removing allergen warnings. Restaurant staff
 is also able to keep track of the customer made reservations in a calendar view.
@@ -15,7 +15,7 @@ is also able to keep track of the customer made reservations in a calendar view.
 
 On the home page the user is able to leave a reservation. Reservation is made by filling in
 a reservation name, reservation start date, reservation end date and the table the customer
-would like to reserve.
+would like to reserve.  
 In the current version only table id 1 exists and no other submitted number will be counted as
 a valid input into the database.
 
