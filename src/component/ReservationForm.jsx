@@ -9,6 +9,7 @@ const ReservationForm = () => {
   const {user} = UserContext;
   const {postReservation} = useReservation();
   let idOfUser = user ? user.id : 2;
+
   const initValues = {
     person_id: idOfUser,
     restaurant_id: 1,
@@ -28,6 +29,7 @@ const ReservationForm = () => {
 
   return (
     <>
+      {console.log(idOfUser)}
       {console.log(idOfUser)}
       <dialog open>
         <h1>Reservation</h1>
@@ -57,6 +59,16 @@ const ReservationForm = () => {
               name="reservation_end"
               type="text"
               id="reservation_end"
+              placeholder="YYYY-MM-DD HH:MM"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="table_id">Table</label>
+            <input
+              name="table_id"
+              type="number"
+              id="table_id"
               placeholder="YYYY-MM-DD HH:MM"
               onChange={handleInputChange}
             />
