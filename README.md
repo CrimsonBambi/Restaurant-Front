@@ -1,6 +1,6 @@
-Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
+# Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
-Idea, Functionalities and Intended Audience
+## Idea, Functionalities and Intended Audience
 
 This application is website for a fine dining restaurant intended for customers
 and restaurant staff.
@@ -11,7 +11,7 @@ For restaurant staff the application allows for altering the menu, including add
 changing the contents of the dishes and including or removing allergen warnings. Restaurant staff
 is also able to keep track of the customer made reservations in a calendar view.
 
-For Testing
+## For Testing
 
 On the home page the user is able to leave a reservation. Reservation is made by filling in
 a reservation name, reservation start date, reservation end date and the table the customer
@@ -22,13 +22,15 @@ In the current version dates must be inputted YYYY-MM-DD HH:MM format. (e.g. 202
 Incorrect date formats will count as valid input to the database, but not for the calendar
 accessible to the admin.
 
-On the Menu page, users can view the restaurant's current menus along with their details, such as name, description, dishes in the menu, prices, allergens and image. The menu of the day is highlighted to make it easier for users to identify. By clicking on a menu image, users can open a modal that displays additional details about the menu. The modal can be closed with pressing the X button or clicking outside the modal. In case the backend is unavailable, the application logs an error message in the console.
+## On the Menu page
+
+Users can view the restaurant's current menus along with their details, such as name, description, dishes in the menu, prices, allergens and image. The menu of the day is highlighted to make it easier for users to identify. By clicking on a menu image, users can open a modal that displays additional details about the menu. The modal can be closed with pressing the X button or clicking outside the modal. In case the backend is unavailable, the application logs an error message in the console.
 
 User accounts ...
 
 Admin ...
 
-Running an example locally
+## Running an example locally
 
 To run the application locally on your computer:
 
