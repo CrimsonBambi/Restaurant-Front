@@ -1,4 +1,3 @@
-
 .reservation-dialog {
     position: fixed;
     top: 0;
@@ -78,4 +77,48 @@
 
 .dish-selection-form button:hover {
     background-color: #e25d4b;
+}
+
+@media (max-width: 768px) {
+    .reservation-dialog {
+        padding: 1rem;
+    }
+
+    .reservation-modal {
+        width: 90%;
+        max-width: none;
+        padding: 1.5rem;
+        border-radius: 0.3rem;
+    }
+
+    .dialog-close-button {
+        font-size: 1.2rem;
+        top: 0.75rem;
+        right: 1rem;
+    }
+
+    .dish-selection-modal {
+        width: 90%;
+        max-width: none;
+        padding: 1.5rem;
+        border-radius: 0.3rem;
+    }
+
+    .dish-selection-form {
+        gap: 1rem;
+    }
+
+    .dish-selection-form label {
+        font-size: 1rem;
+    }
+
+    .dish-selection-form input[type="number"] {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .dish-selection-form button {
+        font-size: 1rem;
+        padding: 0.8rem 1.8rem;
+    }
 }

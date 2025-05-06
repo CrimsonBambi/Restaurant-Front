@@ -1,17 +1,16 @@
-
 #register-container {
   justify-content: center;
   align-items: center;
   border: none;
   border-radius: 1rem;
-  border-style: double ;
+  border-style: double;
   border-color: rgb(217, 222, 225);
   background-color: #F0E9E9;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   width: auto;
   height: auto;
   animation: fadeIn 0.3s ease-out;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -55,9 +54,9 @@
   padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
-  border-bottom-style: double ;
+  border-bottom-style: double;
   border-bottom-color: rgb(217, 222, 225);
-  border-right-style: double ;
+  border-right-style: double;
   border-right-color: rgb(217, 222, 225);
   font-size: 1rem;
 }
@@ -88,9 +87,9 @@
 #register-form button {
   border-style: none;
   border-radius: 0.5rem;
-  border-bottom-style: double ;
+  border-bottom-style: double;
   border-bottom-color: rgb(217, 222, 225);
-  border-right-style: double ;
+  border-right-style: double;
   border-right-color: rgb(217, 222, 225);
   width: 7rem;
   height: 2.5rem;
@@ -120,7 +119,7 @@
   width: auto;
   border-radius: 0.5rem;
   margin-top: 2.5rem;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
 }
 
 .error-message {
@@ -130,4 +129,41 @@
   font-weight: bold;
   font-size: 18px;
   padding: 0.1rem;
+}
+
+@media (max-width: 768px) {
+  #register-container {
+    width: 90%;
+    margin-top: 2rem;
+  }
+
+  #register-form {
+    padding: 1rem;
+  }
+
+  .register-input {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .register-input input {
+    width: 90%;
+    max-width: none;
+    font-size: 1rem;
+  }
+
+  #register-form button {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  #register-container h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .error-message {
+    font-size: 16px;
+    padding: 0.5rem;
+  }
 }
