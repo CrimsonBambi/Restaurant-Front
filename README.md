@@ -22,9 +22,7 @@ In the current version dates must be inputted YYYY-MM-DD HH:MM format. (e.g. 202
 Incorrect date formats will count as valid input to the database, but not for the calendar
 accessible to the admin.
 
-## On the Menu page
-
-Users can view the restaurant's current menus along with their details, such as name, description, dishes in the menu, prices, allergens and image. The menu of the day is highlighted to make it easier for users to identify. By clicking on a menu image, users can open a modal that displays additional details about the menu. The modal can be closed with pressing the X button or clicking outside the modal. In case the backend is unavailable, the application logs an error message in the console.
+On the menu page users can view the restaurant's current menus along with their details, such as name, description, dishes in the menu, prices, allergens and image. The menu of the day is highlighted to make it easier for users to identify. By clicking on a menu image, users can open a modal that displays additional details about the menu. The modal can be closed with pressing the X button or clicking outside the modal. In case the backend is unavailable, the application logs an error message in the console.
 
 User accounts ...
 
