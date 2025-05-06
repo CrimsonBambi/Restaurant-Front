@@ -75,8 +75,8 @@ CSS for frontpage content starts here */
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 80vh;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: 1rem;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -104,10 +104,16 @@ CSS for frontpage content starts here */
 }
 
 #overlaid-text {
-  position: relative;
-  font-size: 30px;
-  width: 400px;
-  top: -40%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 2rem;
+  z-index: 2;
 }
 
 #reservation-space {
@@ -119,4 +125,12 @@ CSS for frontpage content starts here */
   width: 100px;
   height: 50px;
   border-radius: 20px;
+}
+
+#meal-selection-info {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #000000;
+  padding: 2rem;
 }

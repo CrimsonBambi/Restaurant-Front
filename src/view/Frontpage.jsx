@@ -46,7 +46,12 @@ const Frontpage = () => {
             </button>
           </div>
           <div id="overlaid-text">
-            A Symphony of Flavours Crafted To Perfection
+            A Symphony of Flavours<br />
+            Crafted To Perfection
+          </div>
+          <div id="meal-selection-info">
+            Rekisteröityneet käyttäjät voivat valita mieleisensä aterian jo varauksen yhteydessä. <br />
+            Tämä tekee vierailustasi ravintolassamme entistäkin sujuvampaa ja miellyttävämpää.
           </div>
           <div id="reservation-space">
             <button
