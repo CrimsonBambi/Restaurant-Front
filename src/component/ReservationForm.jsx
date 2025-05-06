@@ -1,13 +1,14 @@
-import {React, useState} from 'react';
+import { React, useState, useContext, useEffect } from 'react';
 import useForm from '../hooks/formHooks';
-import {useReservation} from '../hooks/apiHooks';
-import {UserContext} from '../context/UserContext';
+import { useReservation } from '../hooks/apiHooks';
+import { UserContext } from '../context/UserContext';
 import DishSelection from './DishSelection';
+import '../css/reservationform.css';
 
-const ReservationForm = () => {
+const ReservationForm = ({ onClose }) => {
   const [showDishSelect, setDishSelect] = useState(false);
-  const {user} = UserContext;
-  const {postReservation} = useReservation();
+  const { user } = useContext(UserContext);
+  const { postReservation } = useReservation();
   let idOfUser = user ? user.id : 2;
 
   const initValues = {
@@ -16,87 +17,108 @@ const ReservationForm = () => {
   };
 
   const doReservation = async () => {
-    console.log('register funktiota kutsuttu');
     inputs.registered_user = 1;
-    console.log('inputs', inputs);
     await postReservation(inputs);
+    setDishSelect(true);
   };
 
-  const {inputs, handleInputChange, handleSubmit} = useForm(
+  const { inputs, handleInputChange, handleSubmit } = useForm(
     doReservation,
     initValues
   );
 
+  
+  const handleTableChange = (e) => {
+    const value = e.target.value;
+    if (value >= 1 || value === '') {
+      handleInputChange(e);  
+    }
+  };
+
+  
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose(); 
+    }
+  };
+
+
+  const handleDishSelectionClose = () => {
+    setDishSelect(false);
+    onClose();
+  };
+
+
   return (
-    <>
-      {console.log(idOfUser)}
-      {console.log(idOfUser)}
-      <dialog open>
+    <div className="reservation-dialog" onClick={handleBackdropClick}>
+      <div className="reservation-modal">
+        <button className="dialog-close-button" onClick={onClose}>
+          &times;
+        </button>
         <h1>Reservation</h1>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="form-group">
             <label htmlFor="reservation_name">Reservation Name</label>
             <input
               name="reservation_name"
               type="text"
               id="reservation_name"
               onChange={handleInputChange}
+              required
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="reservation_start">Start of Reservation</label>
             <input
               name="reservation_start"
-              type="text"
+              type="datetime-local"
               id="reservation_start"
-              placeholder="YYYY-MM-DD HH:MM"
               onChange={handleInputChange}
+              required
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="reservation_end">End of Reservation</label>
             <input
               name="reservation_end"
-              type="text"
+              type="datetime-local"
               id="reservation_end"
-              placeholder="YYYY-MM-DD HH:MM"
               onChange={handleInputChange}
+              required
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="table_id">Table</label>
             <input
               name="table_id"
               type="number"
               id="table_id"
-              placeholder="YYYY-MM-DD HH:MM"
-              onChange={handleInputChange}
+              value={inputs.table_id}
+              onChange={handleTableChange}
+              min="1"  
+              required
             />
           </div>
-          <div>
-            <label htmlFor="table_id">Table</label>
-            <input
-              name="table_id"
-              type="number"
-              id="table_id"
-              onChange={handleInputChange}
-            />
+          <div className="form-actions">
+            <button
+              type="submit"
+              onClick={() => {
+                console.log('edit button clicked');
+                setDishSelect(true);
+              }}
+            >
+              Reserve
+            </button>
           </div>
-          <button
-            type="submit"
-            onClick={() => {
-              console.log('edit button clicked');
-              setDishSelect(true);
-            }}
-          >
-            Reserve
-          </button>
-          {showDishSelect && (
-            <DishSelection onClose={() => setDishSelect(false)} />
-          )}
         </form>
-      </dialog>
-    </>
+        
+        {showDishSelect && (
+          <DishSelection
+            onClose={handleDishSelectionClose}
+          />
+        )}
+      </div>
+    </div>
   );
 };
 
