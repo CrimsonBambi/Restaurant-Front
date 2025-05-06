@@ -1,0 +1,81 @@
+
+.reservation-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+
+.reservation-modal {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 31.25rem;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+.dialog-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dish-selection-modal {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 31.25rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+.dish-selection-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dish-selection-form label {
+    font-weight: 600;
+    color: #444;
+}
+
+.dish-selection-form input[type="number"] {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.dish-selection-form button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+    font-size: 1rem;
+}
+
+.dish-selection-form button:hover {
+    background-color: #e25d4b;
+}
