@@ -17,13 +17,15 @@ const Management = () => {
   const [dishDesc, setDishDesc] = useState('');
   const [dishPrice, setDishPrice] = useState('');
   const [dishMenuId, setDishMenuId] = useState('');
-  const [newDish, setNewDish] = useState({
-    menu_id: '',  // or a default menu id if you want
-    dish_name: '',
-    type: '',
-    description: '',
-    price: '',
-  });
+
+  const [allergens, setAllergens] = useState([]);
+  const [showAllergenModal, setShowAllergenModal] = useState(false);
+  const [allergenName, setAllergenName] = useState('');
+
+  const [selectedAllergen, setSelectedAllergen] = useState(null);
+  const [linkActionType, setLinkActionType] = useState('link'); // or 'unlink'
+  const [showLinkModal, setShowLinkModal] = useState(false);
+  const [selectedDishId, setSelectedDishId] = useState('');
 
 
   useEffect(() => {
@@ -51,8 +53,21 @@ const Management = () => {
       }
     };
 
+    const fetchAllergens = async () => {
+      try {
+        const response = await fetch('http://10.120.32.81/restaurant/api/v1/allergens');
+        if (!response.ok) throw new Error('Failed to fetch allergens');
+        const data = await response.json();
+        setAllergens(data);
+      } catch (error) {
+        console.error('Error fetching allergens:', error);
+      }
+    };
+
+
     fetchDishes();
     fetchMenus();
+    fetchAllergens();
   }, []);
 
   const deleteMenu = async (id) => {
@@ -90,6 +105,22 @@ const Management = () => {
     }
   };
 
+  const deleteAllergen = async (id) => {
+    const confirmDelete = window.confirm('Haluatko varmasti poistaa tämän allergeenin?');
+    if (!confirmDelete) return;
+
+    try {
+      const response = await fetch(`http://10.120.32.81/restaurant/api/v1/allergens/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) throw new Error('Failed to delete allergen');
+
+      setAllergens((prev) => prev.filter((a) => a.id !== id));
+    } catch (error) {
+      console.error('Error deleting allergen:', error);
+    }
+  };
 
   const handleUpdateMenu = async (e) => {
     e.preventDefault();
@@ -153,22 +184,13 @@ const Management = () => {
                       setNewMenuDesc(menu.description);
                       setNewMenuImage(null);
                       setShowMenuModal(true);
-                    }}
-                  >
-                    Päivitä
-                  </button>
+                    }}>Päivitä</button>
                   <button
                     className="delete-btn"
-                    onClick={() => deleteMenu(menu.id)}
-                  >
-                    Poista
-                  </button>
+                    onClick={() => deleteMenu(menu.id)}>Poista</button>
                 </div>
               </div>
-            ))
-          ) : (
-            <p>No menus available.</p>
-          )}
+            ))) : (<p>No menus available.</p>)}
         </div>
 
         <div id="dishes-option">
@@ -194,14 +216,39 @@ const Management = () => {
                 setDishDesc(dish.description);
                 setDishPrice(dish.price);
                 setDishMenuId(dish.menu_id);
-                setShowDishModal(true);
-              }}>Päivitä</button>
-
+                setShowDishModal(true);}}>Päivitä</button>
                 <button className="delete-btn" onClick={() => deleteDish(dish.id)}>Poista</button>
               </div>
             </div>
           ))}
         </div>
+
+        <div id="allergens-option">
+          <h4>Allergeenit</h4>
+          <button id="add-allergen-button" onClick={() => {
+            setAllergenName('');
+            setShowAllergenModal(true);}}>&#10010;</button>
+            {allergens && allergens.length > 0 ? (allergens.map((allergen) => (
+
+            <div key={allergen.id} className="allergen-card">
+              <span className="allergen-name">{allergen.name}</span>
+            <div className="allergen-buttons">
+              <button className="delete-btn" onClick={() => deleteAllergen(allergen.id)}>Poista</button>
+              <button id="link-button" onClick={() => {
+                setSelectedAllergen(allergen);
+                setLinkActionType('link');
+                setShowLinkModal(true);
+              }}>Linkitä</button>
+              <button id="unlink-button" onClick={() => {
+                setSelectedAllergen(allergen);
+                setLinkActionType('unlink');
+                setShowLinkModal(true);
+              }}>Irroita</button>
+            </div>
+        </div>
+          ))) : (<p>Ei allergeeneja saatavilla.</p>)}
+      </div>
+
       </div>
 
       {showMenuModal && (
@@ -240,8 +287,7 @@ const Management = () => {
                   console.error(err);
                 }
               }}
-              encType="multipart/form-data"
-            >
+              encType="multipart/form-data">
               <input
                 type="text"
                 placeholder="Menu nimi"
@@ -262,29 +308,21 @@ const Management = () => {
               />
               <div className="form-buttons">
                 <button type="submit">{editingMenu ? 'Päivitä' : 'Tallenna'}</button>
-
               </div>
             </form>
           </div>
         </div>
       )}
 
-{showDishModal && (
-  <div className="menu-modal">
-    <div id="menu-modal-content">
-      <button
-        type="button"
-        id="close-menu-modal"
-        onClick={() => {
-          setShowDishModal(false);
-          setEditingDish(null);
-        }}
-      >
-        &times;
-      </button>
-      <h5>{editingDish ? 'Päivitä ruokalaji' : 'Lisää ruokalaji'}</h5>
-      <form
-        onSubmit={async (e) => {
+      {showDishModal && (
+      <div className="menu-modal">
+        <div id="menu-modal-content">
+          <button type="button" id="close-menu-modal" onClick={() => {
+            setShowDishModal(false);
+            setEditingDish(null);
+          }}>&times;</button>
+          <h5>{editingDish ? 'Päivitä ruokalaji' : 'Lisää ruokalaji'}</h5>
+          <form onSubmit={async (e) => {
           e.preventDefault();
           const payload = {
             dish_name: dishName,
@@ -324,8 +362,7 @@ const Management = () => {
           } catch (error) {
             console.error('Dish save error:', error);
           }
-        }}
-      >
+        }}>
         <input
           type="text"
           placeholder="Nimi"
@@ -369,12 +406,129 @@ const Management = () => {
         <div className="form-buttons">
           <button type="submit">Tallenna</button>
         </div>
+        </form>
+      </div>
+    </div>
+    )}
+
+    {showAllergenModal && (
+      <div className="menu-modal">
+        <div id="menu-modal-content">
+          <button type="button" id="close-menu-modal" onClick={() => {
+            setShowAllergenModal(false);
+            setAllergenName('');
+          }}>&times;</button>
+          <h5>Lisää allergeeni</h5>
+          <form onSubmit={async (e) => {
+          e.preventDefault();
+
+          const payload = {
+            name: allergenName,
+          };
+
+          const url = `http://10.120.32.81/restaurant/api/v1/allergens`;
+          const method = 'POST';
+
+
+          try {
+            const response = await fetch(url, {
+              method,
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) throw new Error('Failed to save allergen');
+
+            const result = await response.json();
+
+            console.log(result);
+
+            setShowAllergenModal(false);
+            setAllergenName('');
+          } catch (error) {
+            console.error('Error saving allergen:', error);
+          }
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Allergeenin nimi"
+          value={allergenName}
+          onChange={(e) => setAllergenName(e.target.value)}
+          required
+        />
+        <div className="form-buttons">
+          <button type="submit">Tallenna</button>
+        </div>
       </form>
     </div>
   </div>
 )}
 
+{showLinkModal && (
+  <div className="menu-modal">
+    <div id="menu-modal-content">
+      <button
+        type="button"
+        id="close-menu-modal"
+        onClick={() => {
+          setShowLinkModal(false);
+          setSelectedAllergen(null);
+          setSelectedDishId('');
+        }}
+      >&times;</button>
+      <h5>{linkActionType === 'link' ? 'Linkitä allergeeni ruokalajiin' : 'Irroita allergeeni ruokalajista'}</h5>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const endpoint =
+            linkActionType === 'link'
+              ? 'http://10.120.32.81/restaurant/api/v1/allergens/link'
+              : 'http://10.120.32.81/restaurant/api/v1/allergens/unlink';
 
+          try {
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                dish_id: selectedDishId,
+                allergen_id: selectedAllergen.id,
+              }),
+            });
+
+            if (!response.ok) throw new Error('Operation failed');
+            alert(`Allergeeni ${linkActionType === 'linkki' ? 'liitetty' : 'irroitettu'}!`);
+
+            setShowLinkModal(false);
+            setSelectedAllergen(null);
+            setSelectedDishId('');
+          } catch (err) {
+            console.error(err);
+            alert('Virhe: operaatio epäonnistui.');
+          }
+        }}
+      >
+        <select
+          value={selectedDishId}
+          onChange={(e) => setSelectedDishId(e.target.value)}
+          required
+        >
+          <option value="">Valitse ruokalaji</option>
+          {dishes.map((dish) => (
+            <option key={dish.id} value={dish.id}>{dish.dish_name}</option>
+          ))}
+        </select>
+        <div className="form-buttons">
+          <button type="submit">Tallenna</button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
     </div>
   );
 };
