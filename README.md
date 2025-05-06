@@ -1,8 +1,6 @@
-# Restaurant Application
+Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
-### Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
-
-## Idea, Functionalities and Intended Audience
+Idea, Functionalities and Intended Audience
 
 This application is website for a fine dining restaurant intended for customers
 and restaurant staff.
@@ -13,7 +11,7 @@ For restaurant staff the application allows for altering the menu, including add
 changing the contents of the dishes and including or removing allergen warnings. Restaurant staff
 is also able to keep track of the customer made reservations in a calendar view.
 
-## For Testing
+For Testing
 
 On the home page the user is able to leave a reservation. Reservation is made by filling in
 a reservation name, reservation start date, reservation end date and the table the customer
@@ -30,7 +28,7 @@ User accounts ...
 
 Admin ...
 
-## Running an example locally
+Running an example locally
 
 To run the application locally on your computer:
 
