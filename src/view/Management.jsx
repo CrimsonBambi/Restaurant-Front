@@ -1,5 +1,7 @@
 import '../css/management.css';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const Management = () => {
   const [menus, setMenus] = useState([]);
@@ -26,6 +28,8 @@ const Management = () => {
   const [linkActionType, setLinkActionType] = useState('link'); // or 'unlink'
   const [showLinkModal, setShowLinkModal] = useState(false);
   const [selectedDishId, setSelectedDishId] = useState('');
+  const navigate = useNavigate();
+
 
 
   useEffect(() => {
@@ -159,6 +163,10 @@ const Management = () => {
 
   return (
     <div className="management-container">
+      <button onClick={() => navigate('/reservations')} className="go-to-reservation-btn">
+      Siirry varauksiin
+      </button>
+
       <div id="management-options">
         <div id="menu-option">
           <h4>Menut</h4>
