@@ -4,6 +4,7 @@ import ReservationForm from '../component/ReservationForm';
 
 const Frontpage = () => {
   const [showEdit, setShowEdit] = useState(false);
+  //const [showDishSelect, setDishSelect] = useState(false)
 
   return (
     <>

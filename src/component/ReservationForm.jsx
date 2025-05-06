@@ -1,9 +1,11 @@
-import React from 'react';
+import {React, useState} from 'react';
 import useForm from '../hooks/formHooks';
 import {useReservation} from '../hooks/apiHooks';
 import {UserContext} from '../context/UserContext';
+import DishSelection from './DishSelection';
 
 const ReservationForm = () => {
+  const [showDishSelect, setDishSelect] = useState(false);
   const {user} = UserContext;
   const {postReservation} = useReservation();
   let idOfUser = user ? user.id : 2;
@@ -68,7 +70,18 @@ const ReservationForm = () => {
               onChange={handleInputChange}
             />
           </div>
-          <button type="submit">Reserve</button>
+          <button
+            type="submit"
+            onClick={() => {
+              console.log('edit button clicked');
+              setDishSelect(true);
+            }}
+          >
+            Reserve
+          </button>
+          {showDishSelect && (
+            <DishSelection onClose={() => setDishSelect(false)} />
+          )}
         </form>
       </dialog>
     </>

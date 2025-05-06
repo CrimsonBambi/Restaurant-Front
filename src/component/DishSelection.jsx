@@ -4,37 +4,47 @@ import {useReservation} from '../hooks/apiHooks';
 import useForm from '../hooks/formHooks';
 
 const DishSelection = () => {
+  const {getReservationFromUserId, postSelectedDish} = useReservation();
   const {user} = UserContext;
-  const {postReservation} = useReservation();
-  //let idOfUser = user ? user.id : 2;
-
+  let idOfUser = user ? user.id : 2;
   const getReservation = async () => {
-    return await getReservationFromUserId();
+    console.log('reservation for', idOfUser);
+    const reservationId = await getReservationFromUserId(idOfUser);
+    return reservationId[0].id;
+  };
+  const initValues = {
+    reservation_id: getReservation(),
   };
 
-  const doReservation = async () => {
+  const doDishSelection = async () => {
+    const reservationId = await getReservation();
+    console.log('Reservation selected dishes', reservationId);
     console.log('register funktiota kutsuttu');
     console.log('inputs', inputs);
-    await postSelectedDish(getReservation, inputs);
+    await postSelectedDish(inputs);
   };
 
-  const {inputs, handleInputChange, handleSubmit} = useForm(doReservation);
+  const {inputs, handleInputChange, handleSubmit} = useForm(
+    doDishSelection,
+    initValues
+  );
   return (
     <>
       <dialog open>
-        <h1>Reservation</h1>
+        <h1>Choose Dish</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="dish_id">Reservation Name</label>
+            <label htmlFor="dish_id">Dish Number</label>
             <input
               name="dish_id"
               type="number"
               id="dish_id"
               onChange={handleInputChange}
             />
+            <button type="submit">Reserve Dishes</button>
           </div>
         </form>
-      </dialog>{' '}
+      </dialog>
     </>
   );
 };
