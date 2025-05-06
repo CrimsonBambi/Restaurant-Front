@@ -1,6 +1,5 @@
 # Restaurant Application
 
-
 ## Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
 ### Idea, Functionalities and Intended Audience
@@ -27,9 +26,13 @@ accessible to the admin.
 
 On the menu page users can view the restaurant's current menus along with their details, such as name, description, dishes in the menu, prices, allergens and image. The menu of the day is highlighted to make it easier for users to identify. By clicking on a menu image, users can open a modal that displays additional details about the menu. The modal can be closed with pressing the X button or clicking outside the modal. In case the backend is unavailable, the application logs an error message in the console.
 
-User accounts ...
+Through the registration page, users can create their own profiles on the website by providing their full name, email address, phone number, and a password of their choice. All fields are required. The phone number, email, and password are validated before registration is successfully completed. By default, every registered user is assigned the role of a customer.
 
-Admin ...
+After registering, users can log in by entering their email address and password. Upon successful login, they are redirected to their profile page, which displays their user information and registration date. The password is hidden for security. On the profile page, users can access settings to update or delete their profiles. They may choose which information to update by filling in the relevant input fields—completing all fields is not required.
+
+The admin role differs from the standard customer role. An admin account can only be created by hardcoding it into the database or by changing the default role in the backend during registration. Admins have access to a management page where they can update, delete, and add menus and dishes. The same applies to managing allergens—admins can add or delete allergens, and link or unlink them from dishes.
+
+The management page also includes a button that redirects the admin to the reservations page, where all reservations are displayed on a calendar.
 
 ### Running an example locally
 
@@ -42,4 +45,5 @@ To run the application locally on your computer:
 4. Follow the url provided by Vite
 
 ### Project Feedback Form
+
 [Leave Feedback!](https://docs.google.com/forms/d/e/1FAIpQLSc-TwLOgZ9pyWJg2W9m80UVJZmgRvoQTg-5IVJXjyXH_EG6ig/viewform?usp=dialog)
