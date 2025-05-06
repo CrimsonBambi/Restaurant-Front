@@ -10,6 +10,22 @@ const Management = () => {
   const [newMenuImage, setNewMenuImage] = useState(null);
   const [editingMenu, setEditingMenu] = useState(null);
 
+  const [showDishModal, setShowDishModal] = useState(false);
+  const [editingDish, setEditingDish] = useState(null);
+  const [dishName, setDishName] = useState('');
+  const [dishType, setDishType] = useState('');
+  const [dishDesc, setDishDesc] = useState('');
+  const [dishPrice, setDishPrice] = useState('');
+  const [dishMenuId, setDishMenuId] = useState('');
+  const [newDish, setNewDish] = useState({
+    menu_id: '',  // or a default menu id if you want
+    dish_name: '',
+    type: '',
+    description: '',
+    price: '',
+  });
+
+
   useEffect(() => {
     const fetchMenus = async () => {
       try {
@@ -56,6 +72,24 @@ const Management = () => {
       console.error('Error deleting menu:', error);
     }
   };
+
+  const deleteDish = async (id) => {
+    const confirmDelete = window.confirm('Haluatko varmasti poistaa tämän ruokalajin?');
+    if (!confirmDelete) return;
+
+    try {
+      const response = await fetch(`http://10.120.32.81/restaurant/api/v1/dishes/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) throw new Error('Failed to delete dish');
+
+      setDishes((prevDishes) => prevDishes.filter((dish) => dish.id !== id));
+    } catch (error) {
+      console.error('Error deleting dish:', error);
+    }
+  };
+
 
   const handleUpdateMenu = async (e) => {
     e.preventDefault();
@@ -139,13 +173,31 @@ const Management = () => {
 
         <div id="dishes-option">
           <h4>Ruokalajit</h4>
-          <button id="add-dish-button">&#10010;</button>
+          <button id="add-dish-button" onClick={() => {
+            setEditingDish(null); // reset for new
+            setDishName('');
+            setDishType('');
+            setDishDesc('');
+            setDishPrice('');
+            setDishMenuId('');
+            setShowDishModal(true);
+          }}>&#10010;</button>
+
           {dishes.map((dish) => (
             <div key={dish.id} className="dish-card">
               <span className="dish-name">{dish.dish_name}</span>
               <div className="dish-buttons">
-                <button className="update-btn">Päivitä</button>
-                <button className="delete-btn">Poista</button>
+              <button className="update-btn" onClick={() => {
+                setEditingDish(dish);
+                setDishName(dish.dish_name);
+                setDishType(dish.type);
+                setDishDesc(dish.description);
+                setDishPrice(dish.price);
+                setDishMenuId(dish.menu_id);
+                setShowDishModal(true);
+              }}>Päivitä</button>
+
+                <button className="delete-btn" onClick={() => deleteDish(dish.id)}>Poista</button>
               </div>
             </div>
           ))}
@@ -216,6 +268,113 @@ const Management = () => {
           </div>
         </div>
       )}
+
+{showDishModal && (
+  <div className="menu-modal">
+    <div id="menu-modal-content">
+      <button
+        type="button"
+        id="close-menu-modal"
+        onClick={() => {
+          setShowDishModal(false);
+          setEditingDish(null);
+        }}
+      >
+        &times;
+      </button>
+      <h5>{editingDish ? 'Päivitä ruokalaji' : 'Lisää ruokalaji'}</h5>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const payload = {
+            dish_name: dishName,
+            type: dishType,
+            description: dishDesc,
+            price: dishPrice,
+            menu_id: dishMenuId,
+          };
+
+          const url = editingDish
+            ? `http://10.120.32.81/restaurant/api/v1/dishes/${editingDish.id}`
+            : `http://10.120.32.81/restaurant/api/v1/dishes`;
+
+          const method = editingDish ? 'PUT' : 'POST';
+
+          try {
+            const response = await fetch(url, {
+              method,
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) throw new Error('Failed to save dish');
+
+            const result = await response.json();
+
+            console.log(result);
+
+            // Close modal
+            setShowDishModal(false);
+            setEditingDish(null);
+            setDishName('');
+            setDishType('');
+            setDishDesc('');
+            setDishPrice('');
+            setDishMenuId('');
+          } catch (error) {
+            console.error('Dish save error:', error);
+          }
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Nimi"
+          value={dishName}
+          onChange={(e) => setDishName(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Tyyppi (esim. alku-, pää-, jälkiruoka)"
+          value={dishType}
+          onChange={(e) => setDishType(e.target.value)}
+          required
+        />
+        <textarea
+          placeholder="Kuvaus"
+          value={dishDesc}
+          onChange={(e) => setDishDesc(e.target.value)}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Hinta (€)"
+          value={dishPrice}
+          onChange={(e) => setDishPrice(e.target.value)}
+          required
+        />
+        <select
+          value={dishMenuId}
+          onChange={(e) => setDishMenuId(e.target.value)}
+          required
+        >
+          <option value="">Valitse menu</option>
+          {menus.map((menu) => (
+            <option key={menu.id} value={menu.id}>
+              {menu.name}
+            </option>
+          ))}
+        </select>
+
+        <div className="form-buttons">
+          <button type="submit">Tallenna</button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
+
     </div>
   );
 };
