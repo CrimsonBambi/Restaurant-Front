@@ -9,6 +9,7 @@ import front4 from '../assets/front4.jpg';
 
 const Frontpage = () => {
   const [showEdit, setShowEdit] = useState(false);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [front1, front2, front3, front4];
