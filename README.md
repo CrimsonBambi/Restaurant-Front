@@ -1,12 +1,39 @@
-# React + Vite
+Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Idea, Functionalities and Intended Audience
 
-Currently, two official plugins are available:
+This application is website for a fine dining restaurant intended for customers
+and restaurant staff.
+For customers the application allows for making a reservation at the restaurant, viewing current
+menus and their included dishes, creating an account and viewing contact information
+of the restaurant.
+For restaurant staff the application allows for altering the menu, including adding dishes to it,
+changing the contents of the dishes and including or removing allergen warnings. Restaurant staff
+is also able to keep track of the customer made reservations in a calendar view.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For Testing
 
-## Expanding the ESLint configuration
+On the home page the user is able to leave a reservation. Reservation is made by filling in
+a reservation name, reservation start date, reservation end date and the table the customer
+would like to reserve.
+In the current version only table id 1 exists and no other submitted number will be counted as
+a valid input into the database.
+In the current version dates must be inputted YYYY-MM-DD HH:MM format. (e.g. 2025-12-24 09:00).
+Incorrect date formats will count as valid input to the database, but not for the calendar
+accessible to the admin.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Menu ...
+
+User accounts ...
+
+Admin ...
+
+Running an example locally
+
+To run the application locally on your computer:
+
+1. Copy the restaurant-front repository to your chosen location on your computer
+2. Navigate to the chosen location via terminal, PowerShell, command prompt or similiar
+   means.
+3. Launch the application via npm run dev
+4. Follow the url provided by Vite
