@@ -2,7 +2,7 @@
 
 ## Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
-[Link to APIdoc](http://10.120.32.81/~tarunip/docs/index.html)
+[Link to APIdoc](http://10.120.32.81/~tarunip/docs/index.html)  
 [Link to app](https://users.metropolia.fi/~patrikmg/WD25/web-project/)
 
 ### Idea, Functionalities and Intended Audience
