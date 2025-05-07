@@ -2,7 +2,7 @@
 
 ## Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
-[Link to APIdoc](https://10.120.32.81/~tarunip/docs/index.html)
+[Link to APIdoc](https://10.120.32.81/~tarunip/docs/index.html)  
 [Link to app](https://users.metropolia.fi/~patrikmg/WD25/web-project/)
 
 ### Idea, Functionalities and Intended Audience
@@ -17,6 +17,9 @@ changing the contents of the dishes and including or removing allergen warnings.
 is also able to keep track of the customer made reservations in a calendar view.
 
 ### For Testing
+
+To begin testing first visit [the server page](https://10.120.32.81/) and confirm that you trust this page.  
+Then you can open the app and begin testing.  
 
 On the home page the user is able to leave a reservation. Reservation is made by filling in
 a reservation name, reservation start date, reservation end date and the table the customer
