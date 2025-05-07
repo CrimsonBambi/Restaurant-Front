@@ -19,7 +19,9 @@ is also able to keep track of the customer made reservations in a calendar view.
 ### For Testing
 
 To begin testing first visit [the server page](https://10.120.32.81/) and confirm that you trust this page.  
-Then you can open the app and begin testing.  
+Then open the app to find a mostly barren page.  
+Simply click anywhere on the navigation and the app will begin to work accordingly.  
+Then you can begin testing.
 
 On the home page the user is able to leave a reservation. Reservation is made by filling in
 a reservation name, reservation start date, reservation end date and the table the customer
