@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router';
 import Profile from './view/Profile';
 import Login from './view/Login';
 import Logout from './view/Logout';
@@ -9,13 +9,13 @@ import './css/header.css';
 import './App.css';
 import Reservation from './view/Reservation';
 import Frontpage from './view/Frontpage';
-import { useContext, useState, useEffect } from 'react';
-import { UserContext } from './context/UserContext';
+import {useContext, useState, useEffect} from 'react';
+import {UserContext} from './context/UserContext';
 import RestaurantInfo from './view/RestaurantInfo';
-import { fetchData } from './utils/fetchData';
+import {fetchData} from './utils/fetchData';
 
 function App() {
-  const { user } = useContext(UserContext);
+  const {user} = useContext(UserContext);
   const [restaurantInfo, setRestaurantInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -23,7 +23,9 @@ function App() {
   useEffect(() => {
     const fetchRestaurantData = async () => {
       try {
-        const info = await fetchData('http://10.120.32.81/restaurant/api/v1/info');
+        const info = await fetchData(
+          'https://10.120.32.81/restaurant/api/v1/info'
+        );
         setRestaurantInfo(info);
       } catch (err) {
         setError('Error fetching restaurant info');
@@ -52,21 +54,37 @@ function App() {
           </div>
 
           <nav className="nav">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/menu" className="nav-link">Menu</Link>
-            <Link to="/restaurant-info" className="nav-link">Yhteystiedot</Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/menu" className="nav-link">
+              Menu
+            </Link>
+            <Link to="/restaurant-info" className="nav-link">
+              Yhteystiedot
+            </Link>
             {user ? (
               <>
-                <Link to="/profile" className="nav-link">Profiili</Link>
+                <Link to="/profile" className="nav-link">
+                  Profiili
+                </Link>
                 {user.role === 'admin' && (
-                  <Link to="/management" className="nav-link">Hallinta</Link>
+                  <Link to="/management" className="nav-link">
+                    Hallinta
+                  </Link>
                 )}
-                <Link to="/logout" className="nav-link">Kirjaudu Ulos</Link>
+                <Link to="/logout" className="nav-link">
+                  Kirjaudu Ulos
+                </Link>
               </>
             ) : (
               <>
-                <Link to="/login" className="nav-link">Kirjaudu</Link>
-                <Link to="/register" className="nav-link">Rekisteröidy</Link>
+                <Link to="/login" className="nav-link">
+                  Kirjaudu
+                </Link>
+                <Link to="/register" className="nav-link">
+                  Rekisteröidy
+                </Link>
               </>
             )}
           </nav>
@@ -82,7 +100,12 @@ function App() {
             <Route path="/logout" element={<Logout />} />
             <Route path="/register" element={<Register />} />
             <Route path="/reservations" element={<Reservation />} />
-            <Route path="/management" element={user?.role === 'admin' ? <Management /> : <Link to="/" />} />
+            <Route
+              path="/management"
+              element={
+                user?.role === 'admin' ? <Management /> : <Link to="/" />
+              }
+            />
           </Routes>
         </div>
 
@@ -92,7 +115,10 @@ function App() {
               {restaurantInfo ? (
                 <>
                   <p>{restaurantInfo.name}</p>
-                  <p>{restaurantInfo.address}, {restaurantInfo.postal_code} {restaurantInfo.city}</p>
+                  <p>
+                    {restaurantInfo.address}, {restaurantInfo.postal_code}{' '}
+                    {restaurantInfo.city}
+                  </p>
                   <p>Puh.nro: {restaurantInfo.contact_number}</p>
                   <p>Sähköposti: {restaurantInfo.email}</p>
                 </>

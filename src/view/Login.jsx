@@ -15,7 +15,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        'http://10.120.32.81/restaurant/api/v1/auth/login',
+        'https://10.120.32.81/restaurant/api/v1/auth/login',
         {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},

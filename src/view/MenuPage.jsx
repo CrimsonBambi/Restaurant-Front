@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import MenuItem from "../component/MenuItem";
-import MenuModal from "../component/MenuModal";
-import "../css/menu.css";
-import { fetchData } from "../utils/fetchData"; // Reusable fetch helper
+import React, {useState, useEffect} from 'react';
+import MenuItem from '../component/MenuItem';
+import MenuModal from '../component/MenuModal';
+import '../css/menu.css';
+import {fetchData} from '../utils/fetchData'; // Reusable fetch helper
 
 function MenuPage() {
   const [openModal, setOpenModal] = useState(null); // Currently opened modal data
@@ -13,17 +13,19 @@ function MenuPage() {
     const fetchMenus = async () => {
       try {
         // Fetch all menus from backend
-        const menus = await fetchData("http://10.120.32.81/restaurant/api/v1/menus");
+        const menus = await fetchData(
+          'https://10.120.32.81/restaurant/api/v1/menus'
+        );
 
         // Attach full image URLs for rendering
         const menusWithImages = menus.map((menu) => ({
           ...menu,
-          image: `http://10.120.32.81/restaurant/uploads/${menu.image}`,
+          image: `https://10.120.32.81/restaurant/uploads/${menu.image}`,
         }));
 
         setFetchedMenus(menusWithImages);
       } catch (error) {
-        console.error("Error fetching the menus:", error.message);
+        console.error('Error fetching the menus:', error.message);
       }
     };
 
@@ -52,7 +54,8 @@ function MenuPage() {
         <div id="menu-container">
           <div id="menu-heading-container">
             <h2 id="menu-heading">
-              Saat lisätietoja menun sisällöstä klikkaamalla kuvaa.<br />
+              Saat lisätietoja menun sisällöstä klikkaamalla kuvaa.
+              <br />
               Päivän menu on korostettu.
             </h2>
           </div>
@@ -60,14 +63,12 @@ function MenuPage() {
             {fetchedMenus.map((menu) => (
               <div
                 key={menu.id}
-                className={`menu-item-container ${menu === highlightedMenu ? "highlighted" : ""
-                  }`}
+                className={`menu-item-container ${
+                  menu === highlightedMenu ? 'highlighted' : ''
+                }`}
               >
                 <div id="menu-images">
-                  <MenuItem
-                    item={menu}
-                    onClick={() => handleModalOpen(menu)}
-                  />
+                  <MenuItem item={menu} onClick={() => handleModalOpen(menu)} />
                 </div>
                 <div id="menu-text-container">
                   <h3>{menu.name}</h3>

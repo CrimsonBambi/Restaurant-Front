@@ -1,7 +1,7 @@
 import React from 'react';
 import {fetchData} from '../utils/fetchData.js';
 
-const reserveUrl = 'http://10.120.32.81/restaurant/api/v1/reserve';
+const reserveUrl = 'https://10.120.32.81/restaurant/api/v1/reserve';
 const localReserveUrl = 'localhost:3000/api/v1/reserve';
 
 const useReservation = () => {
