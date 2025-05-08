@@ -87,6 +87,7 @@ const Management = () => {
         `https://10.120.32.81/restaurant/api/v1/menus/${id}`,
         {
           method: 'DELETE',
+          headers: {'Content-Type': 'application/json'},
         }
       );
       if (!response.ok) {
@@ -122,6 +123,7 @@ const Management = () => {
   };
 
   const deleteAllergen = async (id) => {
+    console.log(id);
     const confirmDelete = window.confirm(
       'Haluatko varmasti poistaa tämän allergeenin?'
     );
@@ -132,10 +134,14 @@ const Management = () => {
         `https://10.120.32.81/restaurant/api/v1/allergens/${id}`,
         {
           method: 'DELETE',
+          headers: {'Content-Type': 'application/json'},
         }
       );
 
       if (!response.ok) throw new Error('Failed to delete allergen');
+
+      const data = await response.json();
+      console.log(data);
 
       setAllergens((prev) => prev.filter((a) => a.id !== id));
     } catch (error) {
@@ -169,6 +175,12 @@ const Management = () => {
 
       const result = await response.json();
       console.log(result);
+
+      setMenus((prevMenus) =>
+        prevMenus.map((menu) =>
+          menu.id === editingMenu.id ? result.menu : menu
+        )
+      );
 
       // Reset form and modal state after successful update
       setShowMenuModal(false);
@@ -451,6 +463,13 @@ const Management = () => {
 
                   console.log(result);
 
+                  setDishes((prevDishes) => {
+                    if (editingDish) {
+                      return prevDishes.map((d) => (d.id === editingDish.id ? result.dish : d));
+                    } else {
+                      return [...prevDishes, result.dish];
+                    }
+                  });
                   // Close modal
                   setShowDishModal(false);
                   setEditingDish(null);
@@ -552,6 +571,7 @@ const Management = () => {
 
                   console.log(result);
 
+                  setAllergens([...allergens, result.allergen]);
                   setShowAllergenModal(false);
                   setAllergenName('');
                 } catch (error) {
@@ -584,9 +604,7 @@ const Management = () => {
                 setShowLinkModal(false);
                 setSelectedAllergen(null);
                 setSelectedDishId('');
-              }}
-            >
-              &times;
+              }}>&times;
             </button>
             <h5>
               {linkActionType === 'link'
@@ -602,6 +620,7 @@ const Management = () => {
                     : 'https://10.120.32.81/restaurant/api/v1/allergens/unlink';
 
                 try {
+                  console.log(selectedDishId, '+', selectedAllergen.id);
                   const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
@@ -616,7 +635,7 @@ const Management = () => {
                   if (!response.ok) throw new Error('Operation failed');
                   alert(
                     `Allergeeni ${
-                      linkActionType === 'linkki' ? 'liitetty' : 'irroitettu'
+                      linkActionType === 'link' ? 'liitetty' : 'irroitettu'
                     }!`
                   );
 
@@ -625,7 +644,7 @@ const Management = () => {
                   setSelectedDishId('');
                 } catch (err) {
                   console.error(err);
-                  alert('Virhe: operaatio epäonnistui.');
+                  alert('Virhe: Allergeeni on jo mahdollisesti linkitetty.');
                 }
               }}
             >
