@@ -3,7 +3,7 @@
 ## Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
 [Link to APIdoc](https://10.120.32.81/~tarunip/docs/index.html)
-[Link to app](https://users.metropolia.fi/~gerlih/restaurant-web-project/)
+[Link to app](https://users.metropolia.fi/~gerlih/restaurant-web-project-25/)
 
 ### Idea, Functionalities and Intended Audience
 
