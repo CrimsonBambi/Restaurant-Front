@@ -2,25 +2,25 @@
 
 ## Project made by: Gerli Hirv, Taru Nipuli, Patrik Granström
 
-[Link to APIdoc](https://10.120.32.81/~tarunip/docs/index.html)  
-[Link to app](https://users.metropolia.fi/~patrikmg/WD25/web-project/)
+[Link to APIdoc](https://10.120.32.81/~tarunip/docs/index.html)
+[Link to app](https://users.metropolia.fi/~gerlih/restaurant-web-project/)
 
 ### Idea, Functionalities and Intended Audience
 
 This application is website for a fine dining restaurant intended for customers
-and restaurant staff.  
+and restaurant staff.
 For customers the application allows for making a reservation at the restaurant, viewing current
 menus and their included dishes, creating an account and viewing contact information
-of the restaurant.  
+of the restaurant.
 For restaurant staff the application allows for altering the menu, including adding dishes to it,
 changing the contents of the dishes and including or removing allergen warnings. Restaurant staff
 is also able to keep track of the customer made reservations in a calendar view.
 
 ### For Testing
 
-To begin testing first visit [the server page](https://10.120.32.81/) and confirm that you trust this page.  
-Then open the app to find a mostly barren page.  
-Simply click anywhere on the navigation and the app will begin to work accordingly.  
+To begin testing first visit [the server page](https://10.120.32.81/) and confirm that you trust this page.
+Then open the app to find a mostly barren page.
+Simply click anywhere on the navigation and the app will begin to work accordingly.
 Then you can begin testing.
 
 On the home page the user is able to leave a reservation. Reservation is made by filling in
